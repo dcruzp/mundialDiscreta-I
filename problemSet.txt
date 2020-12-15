@@ -1,0 +1,6 @@
+Problemas (Teoria de numeros y combinatoria)
+
+D2. The Wall (medium)  https://codeforces.com/problemset/problem/690/D2   tags:-combinatorics,-number theory    * 
+C. Shaass and Lights   https://codeforces.com/problemset/problem/294/C    tags:-combinatorics,-number theory
+H. Bots                https://codeforces.com/problemset/problem/575/H    tags:-combinatorics,-number theory
+D. Alex and Julian     https://codeforces.com/problemset/problem/1220/D   tags:-bitmasks,-math,-number theory
