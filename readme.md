@@ -18,6 +18,6 @@
 >
 >4. **[D. Alex and Julian](https://codeforces.com/problemset/problem/1220/D)**
 
-### Author 
->   1. Daniel de la Cruz Prieto.    **[repository](https://github.com/dcruzp/)**
+>- ### Author 
+>   1. Daniel de la Cruz Prieto    **[repository](https://github.com/dcruzp/)**
 >   2. David de la Cruz Prieto **[repository](https://github.com/ddcruzp/)**
