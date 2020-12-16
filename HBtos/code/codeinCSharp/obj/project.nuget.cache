@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "vYwoI8g2DtjLlqdg+T+SskcxpnNJ/i04kFfEzbMLl0ssF5AGH1xoTeywFN710CMGc6dGPqR51hEFycJJFWw4gg==",
+  "dgSpecHash": "1Eu8WI+/jFrxAJB3DEWddQ1zVXfhokjFFaRVAzIq6VNWGdG486oTLHZgnxDSRdDk15HX3uze9ycBEaD1kn8CXw==",
   "success": true,
-  "projectFilePath": "/home/daniel/Desktop/Mundial Discreta I/HBtos/code/codeinCSharp/codeinCSharp.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/david/Desktop/Projets/mundialDiscreta-I/HBtos/code/codeinCSharp/codeinCSharp.csproj",
+  "expectedPackageFiles": [
+    "/home/david/.nuget/packages/microsoft.netcore.app.ref/3.1.0/microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "/home/david/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.10/microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "/home/david/.nuget/packages/microsoft.netcore.app.host.linux-x64/3.1.10/microsoft.netcore.app.host.linux-x64.3.1.10.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -11,3 +11,16 @@
 /home/daniel/Desktop/Mundial Discreta I/HBtos/code/codeinCSharp/obj/Debug/netcoreapp3.1/codeinCSharp.dll
 /home/daniel/Desktop/Mundial Discreta I/HBtos/code/codeinCSharp/obj/Debug/netcoreapp3.1/codeinCSharp.pdb
 /home/daniel/Desktop/Mundial Discreta I/HBtos/code/codeinCSharp/obj/Debug/netcoreapp3.1/codeinCSharp.genruntimeconfig.cache
+/home/david/Desktop/Projets/mundialDiscreta-I/HBtos/code/codeinCSharp/bin/Debug/netcoreapp3.1/codeinCSharp
+/home/david/Desktop/Projets/mundialDiscreta-I/HBtos/code/codeinCSharp/bin/Debug/netcoreapp3.1/codeinCSharp.deps.json
+/home/david/Desktop/Projets/mundialDiscreta-I/HBtos/code/codeinCSharp/bin/Debug/netcoreapp3.1/codeinCSharp.runtimeconfig.json
+/home/david/Desktop/Projets/mundialDiscreta-I/HBtos/code/codeinCSharp/bin/Debug/netcoreapp3.1/codeinCSharp.runtimeconfig.dev.json
+/home/david/Desktop/Projets/mundialDiscreta-I/HBtos/code/codeinCSharp/bin/Debug/netcoreapp3.1/codeinCSharp.dll
+/home/david/Desktop/Projets/mundialDiscreta-I/HBtos/code/codeinCSharp/bin/Debug/netcoreapp3.1/codeinCSharp.pdb
+/home/david/Desktop/Projets/mundialDiscreta-I/HBtos/code/codeinCSharp/obj/Debug/netcoreapp3.1/codeinCSharp.csprojAssemblyReference.cache
+/home/david/Desktop/Projets/mundialDiscreta-I/HBtos/code/codeinCSharp/obj/Debug/netcoreapp3.1/codeinCSharp.AssemblyInfoInputs.cache
+/home/david/Desktop/Projets/mundialDiscreta-I/HBtos/code/codeinCSharp/obj/Debug/netcoreapp3.1/codeinCSharp.AssemblyInfo.cs
+/home/david/Desktop/Projets/mundialDiscreta-I/HBtos/code/codeinCSharp/obj/Debug/netcoreapp3.1/codeinCSharp.csproj.CoreCompileInputs.cache
+/home/david/Desktop/Projets/mundialDiscreta-I/HBtos/code/codeinCSharp/obj/Debug/netcoreapp3.1/codeinCSharp.dll
+/home/david/Desktop/Projets/mundialDiscreta-I/HBtos/code/codeinCSharp/obj/Debug/netcoreapp3.1/codeinCSharp.pdb
+/home/david/Desktop/Projets/mundialDiscreta-I/HBtos/code/codeinCSharp/obj/Debug/netcoreapp3.1/codeinCSharp.genruntimeconfig.cache
