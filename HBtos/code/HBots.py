@@ -102,20 +102,25 @@ def optsolution (n):
     result = coeficientbinomico(2*n+2,n+1)
     return result -1 
 
+MOD = 10**9+7 
+fact = [1]*(2*10**6+5)
+
+for i in range(1,len(fact)):
+    fact[i] = (fact[i-1]* i)% (MOD)
+
 if __name__ == "__main__":
-    n = int(input())
+    #n = int(input())
     #print(solutionCombinatoric(n))
     #print(othersolution(n))
-    # 
-    #print(combination(6,3))
+    
+    print(combination(6,3))
 
     #init(10)
     
     #printbinomios() 
 
-    #print(coeficientbinomico(4,2))
+    #print(coeficientbinomico(6,3))
 
     #print(optsolution(n))
 
-    if n <= 100000:
-        print(math.comb(2*n+2,n+1)-1) #%(10**9+7)-1)
+    print(fact[:10]) 

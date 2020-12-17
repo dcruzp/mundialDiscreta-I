@@ -16,7 +16,7 @@
 >>
 >>Conoce el estado inicial de las luces y se pregunta cuántas formas diferentes existen de encender todas las luces. Encuentre el número requerido de vías módulo 1000000007 (109 + 7).
 >>## Entrada
->>>La primera línea de la entrada contiene dos números enteros nym donde n es el número de luces en la secuencia y m es el número de luces que se encienden inicialmente, (1 ≤ n ≤ 1000, 1 ≤ m ≤ n). La segunda línea contiene m enteros distintos, cada uno entre 1 an inclusive, que denota los índices de luces que se encienden inicialmente.
+>>>La primera línea de la entrada contiene dos números enteros nym donde n es el número de luces en la secuencia y m es el número de luces que se encienden inicialmente, (1 ≤ n ≤ 1000, 1 ≤ m ≤ n). La segunda línea contiene m enteros distintos, cada uno entre 1 a n inclusive, que denota los índices de luces que se encienden inicialmente.
 >>## Salida
 >>>En la única línea de la salida imprima el número de diferentes formas posibles de encender todas las luces módulo 1000000007 (109 + 7).
 #### Example 1:
