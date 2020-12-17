@@ -3,5 +3,18 @@
 *.json
 bin/
 obj/
+<<<<<<< HEAD
 *.aux
 *.fdb_latexmk
+=======
+
+*.aux 
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.pdf 
+*.synctex.gz
+
+
+>>>>>>> d9103bc4b287a5e2a5473d5b650990fc7fcfc9b7

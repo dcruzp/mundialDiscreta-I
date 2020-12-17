@@ -1,6 +1,5 @@
 # HBots
 
-
 ## Orden del Probema
 
 > ## In Inglish 
@@ -34,11 +33,18 @@
 >>>La salida debe contener un solo entero: número de estados posibles módulo 109 + 7.
 
 #### Example
-```
-Input 
-2
-Output
-19
-```
+
+>| Input |
+>|-------|
+>|2      |
+>
+>|Output |
+>|-------|
+>|19     |
 
 
+```
+ditaa {cmd = true args = ["-E"]}
+```
+
+$$\alpha$$
