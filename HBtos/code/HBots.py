@@ -14,7 +14,7 @@ def solutionRecursive (r , b ):
             solutionRecursive (r,b-1)
 
 
-n = 15
+n = 2
 
 solutionRecursive(n,n) 
 
