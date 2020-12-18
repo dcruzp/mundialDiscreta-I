@@ -43,3 +43,4 @@ Input
 Output
 6720
 ```
+![Caption for the picture.](/home/david/Desktop/IMG_20180827_123124.png)

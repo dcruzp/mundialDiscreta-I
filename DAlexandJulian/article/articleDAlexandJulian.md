@@ -51,3 +51,12 @@ Intput
 Output
 0
 ```
+$\alpha$
+
+```ditaa
+
+  +-----+     +-----+
+  |hello| --> |world|
+  +-----+     +-----+
+
+```
