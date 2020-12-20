@@ -12,4 +12,6 @@ obj/
 *.pdf 
 *.synctex.gz
 
+*.png
 
+HBtos/article/img/
