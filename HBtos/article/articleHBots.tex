@@ -4,6 +4,9 @@
 \usepackage{amsmath}
 \usetikzlibrary{matrix}
 \usetikzlibrary {shapes.geometric}
+\usetikzlibrary {positioning}
+\usetikzlibrary {decorations.pathmorphing}
+\usetikzlibrary {arrows.meta}
 
 \usepackage{hyperref}
 
@@ -29,6 +32,7 @@
     \section{Correctitud del Algoritmo} 
     \section{Complejidad temporal del algoritmo} 
 
+    \newpage
 
     \begin{center}
         \begin{tikzpicture}
@@ -74,6 +78,8 @@
         \end{tikzpicture}
     \end{center}
 
+    \newpage
+
     \begin{center}
         \begin{tikzpicture}
 
@@ -118,6 +124,9 @@
         \end{tikzpicture}
     \end{center}
    
+
+    \newpage
+
     \begin{center}
         \begin{tikzpicture}
 
@@ -163,6 +172,8 @@
 
     \end{center}
 
+    \newpage
+
     \begin{tikzpicture}
         %\draw [help lines] (0,0) grid (10,10); 
         \draw[step= 1cm,gray,ultra thick , color = black ,rotate = 45] (0,0) grid (5,5);
@@ -170,7 +181,7 @@
 
 
 
-     
+    \newpage
     
 %Figura del TURNO 2 
     \begin{center}
@@ -196,6 +207,8 @@
             
         \end{tikzpicture}
     \end{center}
+
+    \newpage
 
     \subsection*{Turno 3}
     %TURNO 3 
@@ -240,7 +253,7 @@
         \end{tikzpicture}
     \end{center}
 
-
+    \newpage
 
     \subsubsection*{Turno 3.1}
     %TURNO 3 
@@ -282,6 +295,245 @@
             %\draw[thick,blue] (node cs: name =f) -- (node cs:name =m);
             %\draw[thick,black] (node cs: name =g ) -- (node cs:name =o);
             
+        \end{tikzpicture}
+    \end{center}
+
+    \newpage
+
+    \begin{center}
+        \begin{tikzpicture}
+            \tikz [transparency group]
+            {
+            \pgfsetblendmode{screen}
+
+            \fill[red!90!black]( 90:.6) circle (1);
+            \fill[green!80!black] (210:.6) circle (1);
+            \fill[blue!90!black] (330:.6) circle (1);
+            }
+        \end{tikzpicture}
+    \end{center}
+    
+    \newpage
+    
+    \begin{center}
+        \begin{tikzpicture}
+
+            % \draw [help lines] (0,0) grid (8,12); 
+
+            \path   (0,10) node (a) [circle,draw,fill=red] {A}
+                    (2,10) node (b) [circle,draw,fill=gray] {B}
+                    (4,10) node (c) [circle,draw,fill=gray] {D}
+                    (6,10) node (d) [circle,draw,fill=gray] {H}
+                    (8,10) node (e) [circle,draw,fill=blue] {M}
+                    
+                    (0,8) node (f) [circle,draw,fill=red] {A}
+                    (2,8) node (g) [circle,draw,fill=gray] {B}
+                    (4,8) node (h) [circle,draw,fill=gray] {E}
+                    (6,8) node (i) [circle,draw,fill=gray] {H}
+                    (8,8) node (j) [circle,draw,fill=blue] {M}
+
+                    (0,6) node (k) [circle,draw,fill=red] {A}
+                    (2,6) node (l) [circle,draw,fill=gray] {B}
+                    (4,6) node (m) [circle,draw,fill=gray] {E}
+                    (6,6) node (n) [circle,draw,fill=gray] {I}
+                    (8,6) node (o) [circle,draw,fill=blue] {M}
+
+                    (0,4) node (p) [circle,draw,fill=red] {A}
+                    (2,4) node (q) [circle,draw,fill=gray] {C}
+                    (4,4) node (r) [circle,draw,fill=gray] {E}
+                    (6,4) node (s) [circle,draw,fill=gray] {H}
+                    (8,4) node (t) [circle,draw,fill=blue] {M}
+
+                    (0,2) node (u) [circle,draw,fill=red] {A}
+                    (2,2) node (v) [circle,draw,fill=gray] {C}
+                    (4,2) node (w) [circle,draw,fill=gray] {E}
+                    (6,2) node (x) [circle,draw,fill=gray] {I}
+                    (8,2) node (y) [circle,draw,fill=blue] {M}
+
+                    (0,0) node (uz) [circle,draw,fill=red] {A}
+                    (2,0) node (vz) [circle,draw,fill=gray] {C}
+                    (4,0) node (wz) [circle,draw,fill=gray] {F}
+                    (6,0) node (xz) [circle,draw,fill=gray] {I}
+                    (8,0) node (yz) [circle,draw,fill=blue] {M};
+                    
+
+
+
+
+                    
+                
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =a ) -- (node cs:name =b);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =b ) -- (node cs:name =c);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =c ) -- (node cs:name =d);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =d) -- (node cs:name =e);
+            
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =f ) -- (node cs:name =g);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =g ) -- (node cs:name =h);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =h ) -- (node cs:name =i);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =i ) -- (node cs:name =j);
+            
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =k ) -- (node cs:name =l);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =l ) -- (node cs:name =m);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =m) -- (node cs:name =n);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =n ) -- (node cs:name =o);
+
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =p ) -- (node cs:name =q);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =q ) -- (node cs:name =r);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =r) -- (node cs:name =s);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =s ) -- (node cs:name =t);
+
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =u ) -- (node cs:name =v);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =v ) -- (node cs:name =w);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =w) -- (node cs:name =x);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =x ) -- (node cs:name =y);
+
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =uz ) -- (node cs:name =vz);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =vz ) -- (node cs:name =wz);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =wz) -- (node cs:name =xz);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =xz ) -- (node cs:name =yz);
+            
+            \node [left=1cm,text width=2cm] at (a)
+            {
+            \mbox{\Large Camino 1:}
+            };
+
+            \node [left=1cm,text width=2cm] at (f)
+            {
+            \mbox{\Large Camino 2:}
+            };
+
+            \node [left=1cm,text width=2cm] at (k)
+            {
+            \mbox{\Large Camino 3:}
+            };
+
+            \node [left=1cm,text width=2cm] at (p)
+            {
+            \mbox{\Large Camino 4:}
+            };
+
+            \node [left=1cm,text width=2cm] at (u)
+            {
+            \mbox{\Large Camino 5:}
+            };
+
+            \node [left=1cm,text width=2cm] at (uz)
+            {
+            \mbox{\Large Camino 6:}
+            };
+        \end{tikzpicture}
+    \end{center}
+
+    \newpage
+
+    \subsection*{Gr\'afica con niveles}
+
+    \begin{center}
+        \begin{tikzpicture}
+
+            % \draw [help lines] (0,0) grid (13,6); 
+
+            \path   (5,4) node (a) [circle,draw,fill = gray] {1}
+                    (4,3) node (b) [circle,draw,fill = gray] {1}
+                    (6,3) node (c) [circle,draw,fill = gray] {1}
+                    (3,2) node (d) [circle,draw,fill = gray] {1}
+                    (5,2) node (e) [circle,draw,fill = gray] {2}
+                    (7,2) node (f) [circle,draw,fill = gray] {1}
+                    (2,1) node (g) [circle,draw,fill = gray] {1}
+                    (4,1) node (h) [circle,draw,fill = gray] {3}
+                    (6,1) node (i) [circle,draw,fill = gray] {3}
+                    (8,1) node (j) [circle,draw,fill = gray] {1}
+                    (1,0) node (k) [circle,draw,fill = gray] {1}
+                    (3,0) node (l) [circle,draw,fill = gray] {4}
+                    (5,0) node (m) [circle,draw,fill = gray] {6}
+                    (7,0) node (n) [circle,draw,fill = gray] {2}
+                    (9,0) node (o) [circle,draw,fill = gray] {1};
+                
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red]  (node cs: name =a ) -- (node cs:name =b);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =a ) -- (node cs:name =c);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =b ) -- (node cs:name =d);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =b ) -- (node cs:name =e);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =d ) -- (node cs:name =g);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =c ) -- (node cs:name =e);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =c ) -- (node cs:name =f);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =g ) -- (node cs:name =k);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =g ) -- (node cs:name =l);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =d ) -- (node cs:name =h);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =h ) -- (node cs:name =l);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =e ) -- (node cs:name =h);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =h ) -- (node cs:name =m);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =e ) -- (node cs:name =i);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =i ) -- (node cs:name =m);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =i ) -- (node cs:name =n);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =f ) -- (node cs:name =i);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =f ) -- (node cs:name =j);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =j ) -- (node cs:name =n);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =j ) -- (node cs:name =o);
+            
+            
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =a ) -- (10,4);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =c ) -- (10,3);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =f ) -- (10,2);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =j ) -- (10,1);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =o ) -- (10,0);
+
+            \node [right=5cm,text width=2cm] at (a)
+            {
+            \mbox{\Large n = 0}
+            };
+
+            \node [right=4cm,text width=2cm] at (c)
+            {
+            \mbox{\Large n = 1}
+            };
+
+            \node [right=3cm,text width=2cm] at (f)
+            {
+            \mbox{\Large n = 2}
+            };
+
+            \node [right=2cm,text width=2cm] at (j)
+            {
+            \mbox{\Large n = 3}
+            };
+
+            \node [right=1cm,text width=2cm] at (o)
+            {
+            \mbox{\Large n = 4}
+            };
+
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =a ) -- (4,5);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =b ) -- (3,4);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =d ) -- (2,3);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =g ) -- (1,2);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =k ) -- (0,1);
+            
+            \node [left=1cm,text width=1cm , rotate = -45] at (5,5)
+            {
+            \mbox{ k = 0}
+            };
+
+            \node [left=1cm,text width=1cm , rotate = -45] at (4,4)
+            {
+            \mbox{ k = 1}
+            };
+
+            \node [left=1cm,text width=1cm , rotate = -45] at (3,3)
+            {
+            \mbox{ k = 2}
+            };
+
+            \node [left=1cm,text width=1cm , rotate = -45] at (2,2)
+            {
+            \mbox{ k = 3}
+            };           
+
+            \node [left=1cm,text width=1cm , rotate = -45] at (1,1)
+            {
+            \mbox{ k = 4}
+            };
+
+
         \end{tikzpicture}
     \end{center}
 
