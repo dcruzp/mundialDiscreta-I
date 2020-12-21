@@ -539,7 +539,7 @@ Luego como lo que nos interesa es determinar la cantidad de caminos que hay hast
 Por lo tanto lo que nos interesa es la suma de los valores de cada estado en un camino valido hasta un estado determinado. Para el caso n=2 seria lo siguiente:
 
 
-```latex {cmd=true hide = true aling='center'}
+```latex { cmd=true hide = true aling='center'}
 \documentclass{standalone}
 \usepackage{tikz}
 \usepackage{amsmath}
@@ -632,12 +632,149 @@ Entonces usando la propiedad que demostramos arriba , que para estar a corde par
 
 $$ \sum_{j=0}^{n}\binom{j+k}{k}= \binom{n+k+1}{k+1}$$
 
+para un $k$ fijo, en la figura siguiente  se muestra para el caso $n=2$ y con $k=1$
 
+
+```latex {cmd=true hide align=center }
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usetikzlibrary{matrix}
+\usetikzlibrary {shapes.geometric}
+\usetikzlibrary {positioning}
+\usetikzlibrary {decorations.pathmorphing}
+\usetikzlibrary {arrows.meta}
+\begin{document}
+        \begin{tikzpicture}
+
+            % \draw [help lines] (0,0) grid (13,6); 
+
+            \path   (5,4) node (a) [circle,draw,] {1}
+                    (4,3) node (b) [circle,draw,fill = blue] {1}
+                    (6,3) node (c) [circle,draw,] {1}
+                    (3,2) node (d) [circle,draw,] {1}
+                    (5,2) node (e) [circle,draw,fill = blue] {2}
+                    (7,2) node (f) [circle,draw,] {1}
+                    (2,1) node (g) [circle,draw,] {1}
+                    (4,1) node (h) [circle,draw,] {3}
+                    (6,1) node (i) [circle,draw,fill = blue] {3}
+                    (8,1) node (j) [circle,draw,] {1}
+                    (1,0) node (k) [circle,draw,] {1}
+                    (3,0) node (l) [circle,draw,] {4}
+                    (5,0) node (m) [circle,draw,fill = red] {6}
+                    (7,0) node (n) [circle,draw,] {2}
+                    (9,0) node (o) [circle,draw,] {1};
+                
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red]  (node cs: name =a ) -- (node cs:name =b);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =a ) -- (node cs:name =c);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =b ) -- (node cs:name =d);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =b ) -- (node cs:name =e);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =d ) -- (node cs:name =g);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =c ) -- (node cs:name =e);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =c ) -- (node cs:name =f);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =g ) -- (node cs:name =k);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =g ) -- (node cs:name =l);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =d ) -- (node cs:name =h);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =h ) -- (node cs:name =l);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =e ) -- (node cs:name =h);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =h ) -- (node cs:name =m);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =e ) -- (node cs:name =i);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =i ) -- (node cs:name =m);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =i ) -- (node cs:name =n);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =f ) -- (node cs:name =i);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =f ) -- (node cs:name =j);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =j ) -- (node cs:name =n);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =j ) -- (node cs:name =o);
+            
+            
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =a ) -- (10,4);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =c ) -- (10,3);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =f ) -- (10,2);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =j ) -- (10,1);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =o ) -- (10,0);
+
+            \node [right=5cm,text width=2cm] at (a)
+            {
+            \mbox{\Large n = 0}
+            };
+
+            \node [right=4cm,text width=2cm] at (c)
+            {
+            \mbox{\Large n = 1}
+            };
+
+            \node [right=3cm,text width=2cm] at (f)
+            {
+            \mbox{\Large n = 2}
+            };
+
+            \node [right=2cm,text width=2cm] at (j)
+            {
+            \mbox{\Large n = 3}
+            };
+
+            \node [right=1cm,text width=2cm] at (o)
+            {
+            \mbox{\Large n = 4}
+            };
+
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =a ) -- (4,5);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =b ) -- (3,4);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =d ) -- (2,3);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =g ) -- (1,2);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =k ) -- (0,1);
+            
+            \node [left=1cm,text width=1cm , rotate = -45] at (5,5)
+            {
+            \mbox{ k = 0}
+            };
+
+            \node [left=1cm,text width=1cm , rotate = -45] at (4,4)
+            {
+            \mbox{ k = 1}
+            };
+
+            \node [left=1cm,text width=1cm , rotate = -45] at (3,3)
+            {
+            \mbox{ k = 2}
+            };
+
+            \node [left=1cm,text width=1cm , rotate = -45] at (2,2)
+            {
+            \mbox{ k = 3}
+            };           
+
+            \node [left=1cm,text width=1cm , rotate = -45] at (1,1)
+            {
+            \mbox{ k = 4}
+            };
+
+
+        \end{tikzpicture}
+\end{document}
+```
+Igual se pude deducir la siguiente  identidad si se toma un $k$ fijo.Esta se puede deducir a partir de la propiedad de los binomios vistos en clase $\binom{n}{k} = \binom{n}{n-k}$.Por lo tanto las identidades siguiente tambien es valida.Y se deduce de la que demostramos anteriormente.
+
+$$ \sum_{k = 0}^{n} \binom{j+k}{k} = \binom{n+j+1}{j+1}$$
+
+$$ \sum_{j = 0}^{n} \binom{j+k}{k} = \binom{n+k+1}{k+1}$$
+
+Luego podemos deducir una forma general para calcular lo que estamos buscando:
+
+$$\displaystyle \sum_{k = 0}^{n} \sum_{j = 0}^{n} \binom{j+k}{k} =  \displaystyle \sum_{k = 0}^{n} \binom{n+k+1}{k+1}$$
+
+Pero sabemos si hacemos unos cambios en los indices obtenemos que:
+
+$$\sum_{k = 0}^{n} \binom{n+k+1}{k+1} = \sum_{k=0}^{n+1}\binom{n+k}{k}  = \binom{2n+2}{n+1} - \binom{n}{0}$$
+
+Luego obtenemos una forma cerrada en forma binomica para la sumatorio de la formula que queremos calcular
+
+$$\displaystyle \sum_{k = 0}^{n} \sum_{j = 0}^{n} \binom{j+k}{k} = \binom{2n+2}{n+1} - 1$$
 ### Codigo en Python
 
 ```python {cmd= /usr/bin/python3}
 MOD = 10**9+7 
-fact = [1]*(2*10**6+5)
+fact = [1]*(2*10**6+5) 
 
 for i in range(1,len(fact)):
     fact[i] = (fact[i-1]* i)% (MOD)
@@ -707,3 +844,12 @@ pie
     "David" : 100
 ```
 
+```{r}
+  rnorm(10)
+```
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(
+  comment = '', fig.width = 6, fig.height = 6
+)
+```
