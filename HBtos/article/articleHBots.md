@@ -770,33 +770,56 @@ $$\sum_{k = 0}^{n} \binom{n+k+1}{k+1} = \sum_{k=0}^{n+1}\binom{n+k}{k}  = \binom
 Luego obtenemos una forma cerrada en forma binomica para la sumatorio de la formula que queremos calcular
 
 $$\displaystyle \sum_{k = 0}^{n} \sum_{j = 0}^{n} \binom{j+k}{k} = \binom{2n+2}{n+1} - 1$$
-### Codigo en Python
 
+
+Por lo tanto nuestra solucion se reduce al calcular el coeficiente binomico $\binom{2n+2}{n+1} - 1$ el cual es el numero de estados en que se pueden encontrar los bot en un momento dado sin que ninguno de los dos haya dado mas de $n$ pasos
+
+
+### Solucion Computacional
+
+La soluion comptacional tiene cierto grado de dificultad, dado que hay que que computar un numero grade pues si tenemos en cuenta que $1 \leq N \leq 10^6$. entonces el valor de $\binom{2n+2}{n+1}$ puede ser bastante grande para valores de $n>100$ .
+
+Pero tenemos que el resultado podemos expresarlo modulo $10^9+7$. Esto nos puede facilitar los grades volumenes de calculo dado a resultado de teoria de numeros , dado que podemos trabajar con los modulos de las operaciones y el valor del calculo nunca va a ser mayor que $10^9+7$. Esto es  correcto, por resultados estudiados en *Teoria de numeros*
+
+### Propuesta de Solucion 1
+
+Una solucion valida (y que creo que se le ocurre a todo el mundo) es probar todos los posibles estados , haciendo un backtraking y contando todos los posibles estados. Esta solucion es valida , pore no factible dadod el gran numero de operaciones que hay que hacer, y computacionalmente inviable, pues el numero de llamados recursivos es grade cuando el $n$ es relativamente grande. Y es costo computacional es exponencial, dado que por cada estado hay dos posiblidades de hacer movimientos y generar dos nuevos estados a analizar.Esta claro que la complejidad temporal es exponencial. Si cada bot puede dar a lo sumo $n$ pasos entonces entre los dos pueden dar a lo sumo $2n$ pasos. Entonces el arbol de estados que se forma tiene una profundidad de $2n$ niveles. y como por cada estado se generan $2$ nuevos estados entonces de un nivel a otro se multiplica por dos el numero de estados. Entonces podemos deducir una formula para el numero de estados para un $n$ de la entrada determinado. Entonces la formula es 
+
+$$\sum_{i=0}^{2n} 2^i = 2^{2n}-1$$
+
+Luego esta claro que el numero de operaciones a realizar es exponencial con respecto a $n$. Por lo que un algoritmo que use esta via es exponencial su complejidad temporal
+
+Podemos hacer una poda en el backtraking para no analizar los estados que ya no cumpalan con el requisito de que cada bot de a lo sumo $n$ pasos. Pero el algoritmo va a seguir siendo igual de ineficiente para nuestro caso, pues n es demasiado grande. y el numero de estados a analizar va a seguir siendo grande. Por el resultado que obtuvimos arriba el numero de estados validos  a analizar para un $n$ determinado es $ \binom{2n+2}{n+1} -1$. Lo que hace nuestra proposicion ineficiente es la cantidad de llamados recursivos y el gasto enorme de recursos de la computadora para dar el resultado.
+
+Aqui voy a poner una implementacion de un algoritmo backtraking que usa una poda para no analizar los estados que no cumplan que los bots puedan dar a lo sumo $n$ pasos cada uno .
+
+### Implementacion de la Propuesta de Solucion 1  
+##### Codigo en Python
 ```python {cmd= /usr/bin/python3}
 MOD = 10**9+7 
 fact = [1]*(2*10**6+5) 
 
 for i in range(1,len(fact)):
-    fact[i] = (fact[i-1]* i)% (MOD)
+   fact[i] = (fact[i-1]* i)% (MOD)
 
 def C(n,k):
     return (fact[n] * pow(fact[k], MOD - 2 , MOD)**2) % MOD
 
 if __name__ == "__main__":
     #n = int(input())
-    n = 1
-    print (C(2*n+2 , n+1) -1 )  
+   n = 1
+  print (C(2*n+2 , n+1) -1 )  
 ```
 
 
-### Codigo en C#
+##### Codigo en C#
 
 ```CSharp
 using System;
 
 namespace codeinCSharp
 {
-    class Program
+   class Program
     {
         static void Main(string[] args)
         {
@@ -833,7 +856,7 @@ namespace codeinCSharp
 }
 ```
 
-
+### Propuesta de Solucion 2
 
 ```mermaid
 pie
@@ -842,14 +865,4 @@ pie
     "Cats" : 85
     "Rats" : 150 
     "David" : 100
-```
-
-```{r}
-  rnorm(10)
-```
-
-```{r, setup, include=FALSE}
-knitr::opts_chunk$set(
-  comment = '', fig.width = 6, fig.height = 6
-)
 ```
