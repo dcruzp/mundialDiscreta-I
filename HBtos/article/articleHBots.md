@@ -381,23 +381,137 @@ Cada uno de los estados en gris son estados validos para los cuales los bots no 
 Pero si vemos que la cantidad de caminos posibles partiendo desde **A** hasta cada uno de los estados es la cantidad de estados en que los bots se pueden encontrar en un momento determinado.
 
 En el ejemplo para n=2 en la figura los posibles caminos que tenemos son:
- - A -> B -> D -> H -> M
- - A -> B -> E -> H -> M
- - A -> B -> E -> I -> M
- - A -> C -> E -> H -> M
- - A -> C -> E -> I -> M
- - A -> C -> F -> I -> M
+
+```latex {cmd=true hide align="center" }
+\documentclass{standalone}
+
+\usepackage{tikz}
+\usepackage{amsmath}
+\usetikzlibrary{matrix}
+\usetikzlibrary {shapes.geometric}
+\usetikzlibrary {positioning}
+\usetikzlibrary {decorations.pathmorphing}
+\usetikzlibrary {arrows.meta}
+
+\begin{document}
+     \begin{tikzpicture}
+
+            % \draw [help lines] (0,0) grid (8,12); 
+
+            \path   (0,10) node (a) [circle,draw,fill=red] {A}
+                    (2,10) node (b) [circle,draw,fill=gray] {B}
+                    (4,10) node (c) [circle,draw,fill=gray] {D}
+                    (6,10) node (d) [circle,draw,fill=gray] {H}
+                    (8,10) node (e) [circle,draw,fill=blue] {M}
+                    
+                    (0,8) node (f) [circle,draw,fill=red] {A}
+                    (2,8) node (g) [circle,draw,fill=gray] {B}
+                    (4,8) node (h) [circle,draw,fill=gray] {E}
+                    (6,8) node (i) [circle,draw,fill=gray] {H}
+                    (8,8) node (j) [circle,draw,fill=blue] {M}
+
+                    (0,6) node (k) [circle,draw,fill=red] {A}
+                    (2,6) node (l) [circle,draw,fill=gray] {B}
+                    (4,6) node (m) [circle,draw,fill=gray] {E}
+                    (6,6) node (n) [circle,draw,fill=gray] {I}
+                    (8,6) node (o) [circle,draw,fill=blue] {M}
+
+                    (0,4) node (p) [circle,draw,fill=red] {A}
+                    (2,4) node (q) [circle,draw,fill=gray] {C}
+                    (4,4) node (r) [circle,draw,fill=gray] {E}
+                    (6,4) node (s) [circle,draw,fill=gray] {H}
+                    (8,4) node (t) [circle,draw,fill=blue] {M}
+
+                    (0,2) node (u) [circle,draw,fill=red] {A}
+                    (2,2) node (v) [circle,draw,fill=gray] {C}
+                    (4,2) node (w) [circle,draw,fill=gray] {E}
+                    (6,2) node (x) [circle,draw,fill=gray] {I}
+                    (8,2) node (y) [circle,draw,fill=blue] {M}
+
+                    (0,0) node (uz) [circle,draw,fill=red] {A}
+                    (2,0) node (vz) [circle,draw,fill=gray] {C}
+                    (4,0) node (wz) [circle,draw,fill=gray] {F}
+                    (6,0) node (xz) [circle,draw,fill=gray] {I}
+                    (8,0) node (yz) [circle,draw,fill=blue] {M};
+                    
+
+
+
+
+                    
+                
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =a ) -- (node cs:name =b);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =b ) -- (node cs:name =c);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =c ) -- (node cs:name =d);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =d) -- (node cs:name =e);
+            
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =f ) -- (node cs:name =g);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =g ) -- (node cs:name =h);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =h ) -- (node cs:name =i);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =i ) -- (node cs:name =j);
+            
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =k ) -- (node cs:name =l);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =l ) -- (node cs:name =m);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =m) -- (node cs:name =n);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =n ) -- (node cs:name =o);
+
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =p ) -- (node cs:name =q);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =q ) -- (node cs:name =r);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =r) -- (node cs:name =s);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =s ) -- (node cs:name =t);
+
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =u ) -- (node cs:name =v);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =v ) -- (node cs:name =w);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =w) -- (node cs:name =x);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =x ) -- (node cs:name =y);
+
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =uz ) -- (node cs:name =vz);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =vz ) -- (node cs:name =wz);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =wz) -- (node cs:name =xz);
+            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =xz ) -- (node cs:name =yz);
+            
+            \node [left=1cm,text width=2cm] at (a)
+            {
+            \mbox{\Large Camino 1:}
+            };
+
+            \node [left=1cm,text width=2cm] at (f)
+            {
+            \mbox{\Large Camino 2:}
+            };
+
+            \node [left=1cm,text width=2cm] at (k)
+            {
+            \mbox{\Large Camino 3:}
+            };
+
+            \node [left=1cm,text width=2cm] at (p)
+            {
+            \mbox{\Large Camino 4:}
+            };
+
+            \node [left=1cm,text width=2cm] at (u)
+            {
+            \mbox{\Large Camino 5:}
+            };
+
+            \node [left=1cm,text width=2cm] at (uz)
+            {
+            \mbox{\Large Camino 6:}
+            };
+        \end{tikzpicture}
+\end{document}
+```
 
 Podemos ver que la cantidad de caminos desde **A** hasta un estado determinado coincide con los numeros en la distribucion del Triangulo de Pascal. Como se ve en la figura siguiente:
 
-```latex {cmd=true align="center" }
+```latex {cmd=true hide align=center }
 \documentclass{standalone}
 \usepackage{tikz}
 \usepackage{amsmath}
 \usetikzlibrary{matrix}
 \usetikzlibrary {shapes.geometric}
 \begin{document}
-    
         \begin{tikzpicture}
 
             %\draw [help lines] (0,0) grid (10,10); 
@@ -416,9 +530,7 @@ Podemos ver que la cantidad de caminos desde **A** hasta un estado determinado c
                     (5,6) node (m) [] {\mbox{$\displaystyle \binom{4}{2}$ }}
                     (7,6) node (n) [] {\mbox{$\displaystyle \binom{4}{3}$ }}
                     (9,6) node (o) [] {\mbox{$\displaystyle \binom{4}{4}$ }};
-           
         \end{tikzpicture}
-
 \end{document}
 ```
 
@@ -426,7 +538,8 @@ Luego como lo que nos interesa es determinar la cantidad de caminos que hay hast
 
 Por lo tanto lo que nos interesa es la suma de los valores de cada estado en un camino valido hasta un estado determinado. Para el caso n=2 seria lo siguiente:
 
-```latex {cmd=true hide=true}
+
+```latex {cmd=true hide = true aling='center'}
 \documentclass{standalone}
 \usepackage{tikz}
 \usepackage{amsmath}
@@ -479,17 +592,47 @@ Por lo tanto lo que nos interesa es la suma de los valores de cada estado en un 
 \end{document}
 ```
 
+
 Entonces tendriamos un total de 19 estados posibles:
 
 $$ \displaystyle \binom{0}{0} + \binom{1}{0} +\binom{1}{1} + \binom{2}{0} + \binom{2}{1} + \binom{2}{2} + \binom{3}{1} + \binom{3}{2} +\binom{4}{2}= 19 $$
 
 Si generalizamo entonces tenemos que la formula general para el calculo de todos los posibles estados esta dada por la suma de los numeros combinatorios en el triangulo de Pascal hasta el nivel $2n$ donde cada estado este en un camino donde el numero de pasos a la derecha (bot azul ) y numero e pasos a la izquierda (bot rojo).Entonces la formula para el calculo de todos los pasibles estados hasta un $n$ dado es:
 
-$$\displaystyle \sum_{k = 0}^{n} \sum_{j = 0}^{n} \binom{j+k}{k}    $$
+$$\displaystyle \sum_{k = 0}^{n} \sum_{j = 0}^{n} \binom{j+k}{k} $$
 
-Pero podemos simplificar el calculo. Dado que hay propiedades de los binomios que nos permiten hacer menos calculos en terminos de sumatoria. Vamos a usar la propiedad de los binomios conocida como [Christmas Stocking Theorem](https://mathworld.wolfram.com/ChristmasStockingTheorem.html). O tambien conocida como [Hockey-Stick Identity](https://artofproblemsolving.com/wiki/index.php/Combinatorial_identity). La cual dice lo siguiente: que $\forall \hspace{0.2cm}r,n \in \mathbb{N}$
+Pero podemos simplificar el calculo. Dado que hay propiedades de los binomios que nos permiten hacer menos calculos en terminos de sumatoria. Vamos a usar la propiedad de los binomios conocida como [Christmas Stocking Theorem](https://mathworld.wolfram.com/ChristmasStockingTheorem.html). O tambien conocida como [Hockey-Stick Identity](https://artofproblemsolving.com/wiki/index.php/Combinatorial_identity). La cual dice lo siguiente: que $\forall \hspace{0.2cm}r,n \in \mathbb{N}$ con $n>r$
 
 $$ \sum_{i=r}^{n} \binom{i}{r} =  \binom{n+1}{r+1}$$
+
+#### Demostracion 
+Vamos a hacer la demostracion por induccion en $n$
+>**Caso Base:**
+>El caso base es cuando $n=r$,entonces tenemos lo siguiente:
+> $$\sum_{i=r}^{n} \binom{i}{r}= \sum_{i=r}^{r}\binom{i}{r} = \binom{r}{r} = 1 = \binom{r+1}{r+1}$$
+>Luego para $n=r$ se cumple la igualdad.
+>
+>**Paso Inductivo**
+>Vamos a demostrar ahora que si se cumple para algun $k \in \mathbb{N}$, con $k>r$. Es decir que se cumpla que:
+$$ \sum_{i=r}^{k} \binom{i}{r} = \binom{k+1}{r+1}$$
+>Entonces si desarrollamos la sumatoria tenemos que se cumple que: 
+>$$\sum_{i=r}^{k+1} \binom{i}{r} = \left(\sum_{i=r}^{k}\binom{i}{r}\right) + \binom{k+1}{r} = \binom{k+1}{r+1} +\binom{k+1}{r}$$
+>Pero sabemos que una de las propiedades (que estudiamos en calses)que cumplen los binomios es:
+>$$\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$$
+>Luego usando esta propiedad nos queda que:
+>$$\sum_{i=r}^{k+1} \binom{i}{r} = \left(\sum_{i=r}^{k}\binom{i}{r}\right) + \binom{k+1}{r} = \binom{k+2}{r+1}$$
+>Entonces hemos demostrado por induccion que si se cumple para un $k$ entonces se cumple para $k+1$. Por lo tanto hemos demostrado que:
+>$$ \sum_{i=r}^{n} \binom{i}{r} =  \binom{n+1}{r+1}$$
+
+Sabemos que se cumple que:
+
+$$\displaystyle \sum_{k = 0}^{n} \sum_{j = 0}^{n} \binom{j+k}{k} = \sum_{j = 0}^{n} \sum_{k = 0}^{n} \binom{j+k}{k} $$
+
+Entonces usando la propiedad que demostramos arriba , que para estar a corde para nuestra demostracion se puede escribir de la siguiente manera:
+
+$$ \sum_{j=0}^{n}\binom{j+k}{k}= \binom{n+k+1}{k+1}$$
+
+
 ### Codigo en Python
 
 ```python {cmd= /usr/bin/python3}
