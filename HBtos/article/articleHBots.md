@@ -79,16 +79,14 @@ Para el caso en que los dos pueden dar 2 pasos cada una , vamos a ver un grafico
 #### Comienzo 
 > Un estado inicial, donde tenemos un solo estado (A), desde donde partimos (todavia no se han hecho moviminetos )
 
-
-
-@import "tikzpictures/figure0.tex" {cmd =true hide=true }
+@import "tikzpictures/figure0.tex" {cmd =true hide=true}
 
 #### Turno 1 
 > Desde el estado inicial tenemos dos posibilidades, movernos con el bot rojo, o movernos con el bot azul, por lo que se nos adicionan dos estados mas , uno en el que nos movimos con el bot rojo  desde el estado A hasta el estado B, y otro en el que nos movemos con el bot azul desde el estado A hasta el estado B
 
 
 
-@import "tikzpictures/figure1.tex" {cmd =true hide=true }
+@import "tikzpictures/figure1.tex" {cmd =true hide= true }
 
 
 #### Turno 2
@@ -295,61 +293,7 @@ Para el caso en que los dos pueden dar 2 pasos cada una , vamos a ver un grafico
 
 Si analizamos el esquema sigiente podemos ver que todos los caminos que llevan a estados que son finales (donde cada bot camina exactamente n pasos )quedan representados en el esquema siguiete desde A hasta M. Donde en cada estado se determina moverse a la derecha (linea azul) , o la izquierda (linea roja).
 
-<div align = "center">
-
-```latex {cmd=true hide=true}
-\documentclass{standalone}
-\usepackage{tikz}
-\usepackage{amsmath}
-\usetikzlibrary{matrix}
-\usetikzlibrary {shapes.geometric}
-\begin{document}
-    
-        \begin{tikzpicture}
-
-            %\draw [help lines] (0,0) grid (10,10); 
-
-            \path   (5,10)  node (a) [circle ,black,draw, fill = red] {A}
-                    (4,9) node (b) [circle,draw,fill = gray] {B}
-                    (6,9) node (c) [circle,draw,fill = gray] {C}
-                    (3,8) node (d) [circle,draw,fill = gray] {D}
-                    (5,8) node (e) [circle,draw,fill = gray] {E}
-                    (7,8) node (f) [circle,draw,fill = gray] {F}
-                    (2,7) node (g) [circle,draw] {G}
-                    (4,7) node (h) [circle,draw,fill = gray] {H}
-                    (6,7) node (i) [circle,draw,fill = gray] {I}
-                    (8,7) node (j) [circle,draw] {J}
-                    (1,6) node (k) [circle,draw] {K}
-                    (3,6) node (l) [circle,draw] {L}
-                    (5,6) node (m) [circle,draw,fill = blue] {M}
-                    (7,6) node (n) [circle,draw] {N}
-                    (9,6) node (o) [circle,draw] {O};
-                
-            \draw[ultra thick,red]  (node cs: name =a ) -> (node cs:name =b);
-            \draw[ultra thick,blue] (node cs: name =a ) -- (node cs:name =c);
-            \draw[ultra thick,red] (node cs: name =b ) -- (node cs:name =d);
-            \draw[ultra thick,blue] (node cs: name =b ) -- (node cs:name =e);
-            \draw[thick,red] (node cs: name =d ) -- (node cs:name =g);
-            \draw[ultra thick,red] (node cs: name =c ) -- (node cs:name =e);
-            \draw[ultra thick,blue] (node cs: name =c ) -- (node cs:name =f);
-            \draw[thick,red] (node cs: name =g ) -- (node cs:name =k);
-            \draw[thick,blue] (node cs: name =g ) -- (node cs:name =l);
-            \draw[ultra thick,blue] (node cs: name =d ) -- (node cs:name =h);
-            \draw[thick,red] (node cs: name =h ) -- (node cs:name =l);
-            \draw[ultra thick,red] (node cs: name =e ) -- (node cs:name =h);
-            \draw[ultra thick,blue] (node cs: name =h ) -- (node cs:name =m);
-            \draw[ultra thick,blue] (node cs: name =e ) -- (node cs:name =i);
-            \draw[ultra thick,red] (node cs: name =i ) -- (node cs:name =m);
-            \draw[thick,blue] (node cs: name =i ) -- (node cs:name =n);
-            \draw[ultra thick,red] (node cs: name =f ) -- (node cs:name =i);
-            \draw[thick,blue] (node cs: name =f ) -- (node cs:name =j);
-            \draw[thick,red] (node cs: name =j ) -- (node cs:name =n);
-            \draw[thick,blue] (node cs: name =j ) -- (node cs:name =o);
-        \end{tikzpicture}
-
-\end{document}
-```
-</div>
+@import "tikzpictures/figure14.tex" {cmd=true hide=true }
 
 Aqui vemos que todos los posibles caminos del **Turno 4** estan representados en la figura. y van desde el estado **A** hasta el estado **M**
 
@@ -359,221 +303,21 @@ Pero si vemos que la cantidad de caminos posibles partiendo desde **A** hasta ca
 
 En el ejemplo para n=2 en la figura los posibles caminos que tenemos son:
 
+@import "tikzpictures/figure8.tex" {cmd =true hide=true }
 
-<div align="center">
-
-```latex {cmd=true hide}
-\documentclass{standalone}
-
-\usepackage{tikz}
-\usepackage{amsmath}
-\usetikzlibrary{matrix}
-\usetikzlibrary {shapes.geometric}
-\usetikzlibrary {positioning}
-\usetikzlibrary {decorations.pathmorphing}
-\usetikzlibrary {arrows.meta}
-
-\begin{document}
-     \begin{tikzpicture}
-
-            % \draw [help lines] (0,0) grid (8,12); 
-
-            \path   (0,10) node (a) [circle,draw,fill=red] {A}
-                    (2,10) node (b) [circle,draw,fill=gray] {B}
-                    (4,10) node (c) [circle,draw,fill=gray] {D}
-                    (6,10) node (d) [circle,draw,fill=gray] {H}
-                    (8,10) node (e) [circle,draw,fill=blue] {M}
-                    
-                    (0,8) node (f) [circle,draw,fill=red] {A}
-                    (2,8) node (g) [circle,draw,fill=gray] {B}
-                    (4,8) node (h) [circle,draw,fill=gray] {E}
-                    (6,8) node (i) [circle,draw,fill=gray] {H}
-                    (8,8) node (j) [circle,draw,fill=blue] {M}
-
-                    (0,6) node (k) [circle,draw,fill=red] {A}
-                    (2,6) node (l) [circle,draw,fill=gray] {B}
-                    (4,6) node (m) [circle,draw,fill=gray] {E}
-                    (6,6) node (n) [circle,draw,fill=gray] {I}
-                    (8,6) node (o) [circle,draw,fill=blue] {M}
-
-                    (0,4) node (p) [circle,draw,fill=red] {A}
-                    (2,4) node (q) [circle,draw,fill=gray] {C}
-                    (4,4) node (r) [circle,draw,fill=gray] {E}
-                    (6,4) node (s) [circle,draw,fill=gray] {H}
-                    (8,4) node (t) [circle,draw,fill=blue] {M}
-
-                    (0,2) node (u) [circle,draw,fill=red] {A}
-                    (2,2) node (v) [circle,draw,fill=gray] {C}
-                    (4,2) node (w) [circle,draw,fill=gray] {E}
-                    (6,2) node (x) [circle,draw,fill=gray] {I}
-                    (8,2) node (y) [circle,draw,fill=blue] {M}
-
-                    (0,0) node (uz) [circle,draw,fill=red] {A}
-                    (2,0) node (vz) [circle,draw,fill=gray] {C}
-                    (4,0) node (wz) [circle,draw,fill=gray] {F}
-                    (6,0) node (xz) [circle,draw,fill=gray] {I}
-                    (8,0) node (yz) [circle,draw,fill=blue] {M};
-                    
-
-
-
-
-                    
-                
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =a ) -- (node cs:name =b);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =b ) -- (node cs:name =c);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =c ) -- (node cs:name =d);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =d) -- (node cs:name =e);
-            
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =f ) -- (node cs:name =g);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =g ) -- (node cs:name =h);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =h ) -- (node cs:name =i);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =i ) -- (node cs:name =j);
-            
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =k ) -- (node cs:name =l);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =l ) -- (node cs:name =m);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =m) -- (node cs:name =n);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =n ) -- (node cs:name =o);
-
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =p ) -- (node cs:name =q);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =q ) -- (node cs:name =r);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =r) -- (node cs:name =s);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =s ) -- (node cs:name =t);
-
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =u ) -- (node cs:name =v);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =v ) -- (node cs:name =w);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =w) -- (node cs:name =x);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =x ) -- (node cs:name =y);
-
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =uz ) -- (node cs:name =vz);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =vz ) -- (node cs:name =wz);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =wz) -- (node cs:name =xz);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =xz ) -- (node cs:name =yz);
-            
-            \node [left=1cm,text width=2cm] at (a)
-            {
-            \mbox{\Large Camino 1:}
-            };
-
-            \node [left=1cm,text width=2cm] at (f)
-            {
-            \mbox{\Large Camino 2:}
-            };
-
-            \node [left=1cm,text width=2cm] at (k)
-            {
-            \mbox{\Large Camino 3:}
-            };
-
-            \node [left=1cm,text width=2cm] at (p)
-            {
-            \mbox{\Large Camino 4:}
-            };
-
-            \node [left=1cm,text width=2cm] at (u)
-            {
-            \mbox{\Large Camino 5:}
-            };
-
-            \node [left=1cm,text width=2cm] at (uz)
-            {
-            \mbox{\Large Camino 6:}
-            };
-        \end{tikzpicture}
-\end{document}
-```
-</div>
 Podemos ver que la cantidad de caminos desde **A** hasta un estado determinado coincide con los numeros en la distribucion del Triangulo de Pascal. Como se ve en la figura siguiente:
 
-```latex {cmd=true hide align=center }
-\documentclass{standalone}
-\usepackage{tikz}
-\usepackage{amsmath}
-\usetikzlibrary{matrix}
-\usetikzlibrary {shapes.geometric}
-\begin{document}
-        \begin{tikzpicture}
 
-            %\draw [help lines] (0,0) grid (10,10); 
-            \path   (5,10)  node (a) [] {\mbox{$\displaystyle \binom{0}{0}$ }}
-                    (4,9) node (b) [] {\mbox{$\displaystyle \binom{1}{0}$ }}
-                    (6,9) node (c) [] {\mbox{$\displaystyle \binom{1}{1}$ }}
-                    (3,8) node (d) [] {\mbox{$\displaystyle \binom{2}{0}$ }}
-                    (5,8) node (e) [] {\mbox{$\displaystyle \binom{2}{1}$ }}
-                    (7,8) node (f) [] {\mbox{$\displaystyle \binom{2}{2}$ }}
-                    (2,7) node (g) [] {\mbox{$\displaystyle \binom{3}{0}$ }}
-                    (4,7) node (h) [] {\mbox{$\displaystyle \binom{3}{1}$ }}
-                    (6,7) node (i) [] {\mbox{$\displaystyle \binom{3}{2}$ }}
-                    (8,7) node (j) [] {\mbox{$\displaystyle \binom{3}{3}$ }}
-                    (1,6) node (k) [] {\mbox{$\displaystyle \binom{4}{0}$ }}
-                    (3,6) node (l) [] {\mbox{$\displaystyle \binom{4}{1}$ }}
-                    (5,6) node (m) [] {\mbox{$\displaystyle \binom{4}{2}$ }}
-                    (7,6) node (n) [] {\mbox{$\displaystyle \binom{4}{3}$ }}
-                    (9,6) node (o) [] {\mbox{$\displaystyle \binom{4}{4}$ }};
-        \end{tikzpicture}
-\end{document}
-```
+@import "tikzpictures/figure2.tex" {cmd = true hide=true}
+
+
 
 Luego como lo que nos interesa es determinar la cantidad de caminos que hay hasta un estado determinado partiendo desde el estado inicial (estado A). Pero los valores en el triangulo de Pascal te da la cantidad de caminos hasta una posicion determinada.
 
 Por lo tanto lo que nos interesa es la suma de los valores de cada estado en un camino valido hasta un estado determinado. Para el caso n=2 seria lo siguiente:
 
 
-```latex { cmd=true hide = true aling="center"}
-\documentclass{standalone}
-\usepackage{tikz}
-\usepackage{amsmath}
-\usetikzlibrary{matrix}
-\usetikzlibrary {shapes.geometric}
-\begin{document}
-    
-        \begin{tikzpicture}
-
-            %\draw [help lines] (0,0) grid (10,10); 
-
-            \path   (5,10)  node (a) [] {\textcolor {blue}{\mbox{$\displaystyle \binom{0}{0}$ }}}
-                    (4,9) node (b) [] {\textcolor {blue}{\mbox{$\displaystyle \binom{1}{0}$ }}}
-                    (6,9) node (c) [] {\textcolor {blue}{\mbox{$\displaystyle \binom{1}{1}$ }}}
-                    (3,8) node (d) [] {\textcolor {blue}{\mbox{$\displaystyle \binom{2}{0}$ }}}
-                    (5,8) node (e) [] {\textcolor {blue}{\mbox{$\displaystyle \binom{2}{1}$ }}}
-                    (7,8) node (f) [] {\textcolor {blue}{\mbox{$\displaystyle \binom{2}{2}$ }}}
-                    (2,7) node (g) [] {\mbox{$\displaystyle \binom{3}{0}$ }}
-                    (4,7) node (h) [] {\textcolor {blue}{\mbox{$\displaystyle \binom{3}{1}$ }}}
-                    (6,7) node (i) [] {\textcolor {blue}{\mbox{$\displaystyle \binom{3}{2}$ }}}
-                    (8,7) node (j) [] {\mbox{$\displaystyle \binom{3}{3}$ }}
-                    (1,6) node (k) [] {\mbox{$\displaystyle \binom{4}{0}$ }}
-                    (3,6) node (l) [] {\mbox{$\displaystyle \binom{4}{1}$ }}
-                    (5,6) node (m) [] {\textcolor {blue}{\mbox{$\displaystyle \binom{4}{2}$ }}}
-                    (7,6) node (n) [] {\mbox{$\displaystyle \binom{4}{3}$ }}
-                    (9,6) node (o) [] {\mbox{$\displaystyle \binom{4}{4}$ }};
-                
-            % \draw[thick,red]  (node cs: name =a ) -- (node cs:name =b);
-            % \draw[thick,blue] (node cs: name =a ) -- (node cs:name =c);
-            % \draw[thick,red] (node cs: name =b ) -- (node cs:name =d);
-            % \draw[thick,blue] (node cs: name =b ) -- (node cs:name =e);
-            % \draw[thick,red] (node cs: name =d ) -- (node cs:name =g);
-            % \draw[thick,red] (node cs: name =c ) -- (node cs:name =e);
-            % \draw[thick,blue] (node cs: name =c ) -- (node cs:name =f);
-            % \draw[thick,red] (node cs: name =g ) -- (node cs:name =k);
-            % \draw[thick,blue] (node cs: name =g ) -- (node cs:name =l);
-            % \draw[thick,blue] (node cs: name =d ) -- (node cs:name =h);
-            % \draw[thick,red] (node cs: name =h ) -- (node cs:name =l);
-            % \draw[thick,red] (node cs: name =e ) -- (node cs:name =h);
-            % \draw[thick,blue] (node cs: name =h ) -- (node cs:name =m);
-            % \draw[thick,blue] (node cs: name =e ) -- (node cs:name =i);
-            % \draw[thick,red] (node cs: name =i ) -- (node cs:name =m);
-            % \draw[thick,blue] (node cs: name =i ) -- (node cs:name =n);
-            % \draw[thick,red] (node cs: name =f ) -- (node cs:name =i);
-            % \draw[thick,blue] (node cs: name =f ) -- (node cs:name =j);
-            % \draw[thick,red] (node cs: name =j ) -- (node cs:name =n);
-            % \draw[thick,blue] (node cs: name =j ) -- (node cs:name =o);
-        \end{tikzpicture}
-
-\end{document}
-```
-
-
-
+@import "tikzpictures/figure13.tex" {{cmd =true hide =true }}
 
 Entonces tendriamos un total de 19 estados posibles:
 
@@ -616,125 +360,8 @@ $$ \sum_{j=0}^{n}\binom{j+k}{k}= \binom{n+k+1}{k+1}$$
 
 para un $k$ fijo, en la figura siguiente  se muestra para el caso $n=2$ y con $k=1$
 
+@import "tikzpictures/figure11.tex" {cmd =true hide =true }
 
-```latex {cmd=true ,hide=true}
-\documentclass{standalone}
-\usepackage{tikz}
-\usepackage{amsmath}
-\usetikzlibrary{matrix}
-\usetikzlibrary {shapes.geometric}
-\usetikzlibrary {positioning}
-\usetikzlibrary {decorations.pathmorphing}
-\usetikzlibrary {arrows.meta}
-\begin{document}
-        \begin{tikzpicture}
-
-            % \draw [help lines] (0,0) grid (13,6); 
-
-            \path   (5,4) node (a) [circle,draw,] {1}
-                    (4,3) node (b) [circle,draw,fill = blue] {1}
-                    (6,3) node (c) [circle,draw,] {1}
-                    (3,2) node (d) [circle,draw,] {1}
-                    (5,2) node (e) [circle,draw,fill = blue] {2}
-                    (7,2) node (f) [circle,draw,] {1}
-                    (2,1) node (g) [circle,draw,] {1}
-                    (4,1) node (h) [circle,draw,] {3}
-                    (6,1) node (i) [circle,draw,fill = blue] {3}
-                    (8,1) node (j) [circle,draw,] {1}
-                    (1,0) node (k) [circle,draw,] {1}
-                    (3,0) node (l) [circle,draw,] {4}
-                    (5,0) node (m) [circle,draw,fill = red] {6}
-                    (7,0) node (n) [circle,draw,] {2}
-                    (9,0) node (o) [circle,draw,] {1};
-                
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red]  (node cs: name =a ) -- (node cs:name =b);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =a ) -- (node cs:name =c);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =b ) -- (node cs:name =d);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =b ) -- (node cs:name =e);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =d ) -- (node cs:name =g);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =c ) -- (node cs:name =e);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =c ) -- (node cs:name =f);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =g ) -- (node cs:name =k);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =g ) -- (node cs:name =l);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =d ) -- (node cs:name =h);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =h ) -- (node cs:name =l);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =e ) -- (node cs:name =h);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =h ) -- (node cs:name =m);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =e ) -- (node cs:name =i);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =i ) -- (node cs:name =m);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =i ) -- (node cs:name =n);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =f ) -- (node cs:name =i);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =f ) -- (node cs:name =j);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=red]},red] (node cs: name =j ) -- (node cs:name =n);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=blue]},blue] (node cs: name =j ) -- (node cs:name =o);
-            
-            
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =a ) -- (10,4);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =c ) -- (10,3);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =f ) -- (10,2);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =j ) -- (10,1);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =o ) -- (10,0);
-
-            \node [right=5cm,text width=2cm] at (a)
-            {
-            \mbox{\Large n = 0}
-            };
-
-            \node [right=4cm,text width=2cm] at (c)
-            {
-            \mbox{\Large n = 1}
-            };
-
-            \node [right=3cm,text width=2cm] at (f)
-            {
-            \mbox{\Large n = 2}
-            };
-
-            \node [right=2cm,text width=2cm] at (j)
-            {
-            \mbox{\Large n = 3}
-            };
-
-            \node [right=1cm,text width=2cm] at (o)
-            {
-            \mbox{\Large n = 4}
-            };
-
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =a ) -- (4,5);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =b ) -- (3,4);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =d ) -- (2,3);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =g ) -- (1,2);
-            \draw[arrows = -{Triangle[open, angle=60:2mm,fill=black]}] [dash pattern=on 2pt off 2pt](node cs: name =k ) -- (0,1);
-            
-            \node [left=1cm,text width=1cm , rotate = -45] at (5,5)
-            {
-            \mbox{ k = 0}
-            };
-
-            \node [left=1cm,text width=1cm , rotate = -45] at (4,4)
-            {
-            \mbox{ k = 1}
-            };
-
-            \node [left=1cm,text width=1cm , rotate = -45] at (3,3)
-            {
-            \mbox{ k = 2}
-            };
-
-            \node [left=1cm,text width=1cm , rotate = -45] at (2,2)
-            {
-            \mbox{ k = 3}
-            };           
-
-            \node [left=1cm,text width=1cm , rotate = -45] at (1,1)
-            {
-            \mbox{ k = 4}
-            };
-
-
-        \end{tikzpicture}
-\end{document}
-```
 Igual se pude deducir la siguiente  identidad si se toma un $k$ fijo.Esta se puede deducir a partir de la propiedad de los binomios vistos en clase $\binom{n}{k} = \binom{n}{n-k}$.Por lo tanto las identidades siguiente tambien es valida.Y se deduce de la que demostramos anteriormente.
 
 $$ \sum_{k = 0}^{n} \binom{j+k}{k} = \binom{n+j+1}{j+1}$$
@@ -775,6 +402,11 @@ Podemos hacer una poda en el backtraking para no analizar los estados que ya no 
 
 Aqui voy a poner una implementacion de un algoritmo backtraking que usa una poda para no analizar los estados que no cumplan que los bots puedan dar a lo sumo $n$ pasos cada uno .
 
+La figura siguiente muestra los estados analizados por el algoritmo para un $n=2$, en gris los nodos que son validos y en negro los vertices que se podaron (que son los vertices que no cumplen que cada bot camine a lo sumo 2 pasos)
+
+@import "tikzpictures/figure12.tex" {cmd = true hide = true }
+
+aqui podemos ver que la cantidad de nodos validos es 19 , por lo que. En los estados que estan en negro es porque en el instante es que el algoritmo determina moverse a un estado en negro es porque no cumple que cada bot de a lo sumo mas de dos movimientos , por lo tanto esos estados se podan en el algoritmo, pueds no seran validos para nuetra respuesta 
 ### Implementacion de la Propuesta de Solucion 1  
 
 ##### Codigo en Python
@@ -783,47 +415,7 @@ Aqui voy a poner una implementacion de un algoritmo backtraking que usa una poda
 
 ##### Codigo en C#
 
-```CSharp
-using System;
-
-namespace codeinCSharp
-{
-   class Program
-    {
-        static void Main(string[] args)
-        {
-            int n = int.Parse(Console.ReadLine()); 
-            System.Console.WriteLine(solution(n));
-        }
-
-        public static void recursivesolution (int r , int b , ref long count )
-        {
-            if (r ==0 && b==0 )
-            {
-                count += 1 ; 
-            }
-            else 
-            {
-                count += 1; 
-                if (r > 0)
-                {
-                    recursivesolution(r-1, b, ref count); 
-                }
-                if (b > 0)
-                {
-                    recursivesolution(r,b-1,ref count );
-                }
-            }
-        }
-        public static long solution (int n) 
-        {
-            long count = 0 ; 
-            recursivesolution(n,n,ref count) ;
-            return count ; 
-        } 
-    }
-}
-```
+@import "../code/codeinCSharp/Program.cs" {class="line-numbers" line_begin=12 line_end=38 }
 
 ### Propuesta de Solucion 2
 

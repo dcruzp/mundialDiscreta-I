@@ -1,62 +1,40 @@
 ﻿using System;
-using System.Collections.Generic; 
 
 namespace codeinCSharp
 {
-    enum type 
-    {
-        red = 0 , 
-        blue = 1
-    }
     class Program
     {
         static void Main(string[] args)
         {
             int n = int.Parse(Console.ReadLine()); 
-
-            System.Console.WriteLine(solution(n));
+            System.Console.WriteLine(solBacktraking(n));
         }
 
-        public static void printrack (ref Stack<type> track)
+        public static void backtraking (int r , int b , ref long count)
         {
-            type [] aux = track.ToArray(); 
-            for (int i = aux.Length-1 ;  i >= 0 ; i-- )
+            if (r ==0 && b==0 )  //si llego aqui es que esta ahora en un estado final , o sea que cada bot a hecho exactamante n movimientos 
             {
-                System.Console.Write(aux[i].ToString() + " ");
-            }
-            System.Console.WriteLine();
-        }
-        public static void recursivesolution (int r , int b , ref long count ,ref Stack<type> track)
-        {
-            if (r ==0 && b==0 )
-            {
-                count += 1 ; 
-                //printrack(ref track); 
+                count += 1 ;   // aumento el contador pues los estados finales tambien son validos
             }
             else 
             {
-                count += 1; 
+                count += 1;  // aumento el contador en 1 pues si llego aqui es porque es un estado valido, pues si llego aqui es porque r>0 (todavia se puede mover con el bot rojo )o b>0 (todavia se puede mover con el bot azul )
                 if (r > 0)
                 {
-                    //track.Push(type.red); 
-                    recursivesolution(r-1, b, ref count , ref track) ;
-                    //track.Pop(); 
+                    backtraking (r-1, b, ref count) ; //llamo al backtraking movindome con el bot rojo a un estado  (llamando a la funcion recursiva disminuyendo la cuota de movimientos del bot rojo )
                 }
                 if (b > 0)
                 {
-                    //track.Push(type.blue); 
-                    recursivesolution(r,b-1,ref count , ref track) ;
-                    //track.Pop(); 
+                    backtraking (r,b-1,ref count) ;  //llamo al backtraking movindome con el bot azul a un estado  (llamando a la funcion recursiva disminuyendo la cuota de movimientos del bot azul )
                 }
                 
             }
         }
-        public static long solution (int n) 
+        public static long solBacktraking (int n) 
         {
-            long count = 0 ; 
-            Stack<type> track = new Stack<type>(); 
-            recursivesolution(n,n,ref count , ref track) ;
-            return count ; 
+            long count = 0 ;  // pongo un contador en cero 
+            backtraking (n,n,ref count ) ; //lamo a la solucion partiendo con todos los movimientos validos o sea para cada bot con una cantidad e movimientos validos igual a n 
+            return count ;  // retorno el contador despues de hacer el llamado a la funcion  backtraking 
         } 
     }
 }
