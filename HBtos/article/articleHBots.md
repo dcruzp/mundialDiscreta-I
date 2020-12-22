@@ -1,5 +1,10 @@
+---
 # [HBots](https://codeforces.com/problemset/problem/575/H)
------------------------------------------------------------
+title: "HBots"
+author: "Daniel de la Cruz Prieto"
+date: "76767"
+output: html_document 
+---
 ## Orden del Probema
 
 > ## In Inglish 
@@ -74,47 +79,17 @@ Para el caso en que los dos pueden dar 2 pasos cada una , vamos a ver un grafico
 #### Comienzo 
 > Un estado inicial, donde tenemos un solo estado (A), desde donde partimos (todavia no se han hecho moviminetos )
 
-```latex {cmd=true hide=true}
-\documentclass{standalone}
-\usepackage{tikz}
-\usepackage{amsmath}
-\usetikzlibrary{matrix}
-\usetikzlibrary {shapes.geometric}
-\begin{document}
-        \begin{tikzpicture}
 
-            %\draw [help lines] (0,0) grid (10,10); 
 
-            \path   (5,10)  node (a) [circle,draw] {A};
-    
-        \end{tikzpicture}
-\end{document}
-```
+@import "tikzpictures/figure0.tex" {cmd =true hide=true }
+
 #### Turno 1 
 > Desde el estado inicial tenemos dos posibilidades, movernos con el bot rojo, o movernos con el bot azul, por lo que se nos adicionan dos estados mas , uno en el que nos movimos con el bot rojo  desde el estado A hasta el estado B, y otro en el que nos movemos con el bot azul desde el estado A hasta el estado B
 
 
 
-```latex {cmd=true hide=true}
-\documentclass{standalone}
-\usepackage{tikz}
-\usepackage{amsmath}
-\usetikzlibrary{matrix}
-\usetikzlibrary {shapes.geometric}
-\begin{document}
-        \begin{tikzpicture}
+@import "tikzpictures/figure1.tex" {cmd =true hide=true }
 
-            %\draw [help lines] (0,0) grid (10,10); 
-
-            \path   (5,10)node (a) [circle,draw] {A}
-                    (4,9) node (b) [circle,draw] {B}
-                    (6,9) node (c) [circle,draw] {C};
-                
-            \draw[thick,red]  (node cs: name =a ) -- (node cs:name =b);
-            \draw[thick,blue] (node cs: name =a ) -- (node cs:name =c);
-        \end{tikzpicture}
-\end{document}
-```
 
 #### Turno 2
 > Despues puedemos hacer un movimiento mas con cada bot. Por lo que desde el estado B podriamos movernos con el bot rojo o con el azul, y lo mismo desde el estado C. Lo que nos crea cuatro nuevos estado (D,E,F,G).
@@ -320,6 +295,7 @@ Para el caso en que los dos pueden dar 2 pasos cada una , vamos a ver un grafico
 
 Si analizamos el esquema sigiente podemos ver que todos los caminos que llevan a estados que son finales (donde cada bot camina exactamente n pasos )quedan representados en el esquema siguiete desde A hasta M. Donde en cada estado se determina moverse a la derecha (linea azul) , o la izquierda (linea roja).
 
+<div align = "center">
 
 ```latex {cmd=true hide=true}
 \documentclass{standalone}
@@ -373,6 +349,7 @@ Si analizamos el esquema sigiente podemos ver que todos los caminos que llevan a
 
 \end{document}
 ```
+</div>
 
 Aqui vemos que todos los posibles caminos del **Turno 4** estan representados en la figura. y van desde el estado **A** hasta el estado **M**
 
@@ -382,7 +359,10 @@ Pero si vemos que la cantidad de caminos posibles partiendo desde **A** hasta ca
 
 En el ejemplo para n=2 en la figura los posibles caminos que tenemos son:
 
-```latex {cmd=true hide align="center" }
+
+<div align="center">
+
+```latex {cmd=true hide}
 \documentclass{standalone}
 
 \usepackage{tikz}
@@ -502,7 +482,7 @@ En el ejemplo para n=2 en la figura los posibles caminos que tenemos son:
         \end{tikzpicture}
 \end{document}
 ```
-
+</div>
 Podemos ver que la cantidad de caminos desde **A** hasta un estado determinado coincide con los numeros en la distribucion del Triangulo de Pascal. Como se ve en la figura siguiente:
 
 ```latex {cmd=true hide align=center }
@@ -539,7 +519,7 @@ Luego como lo que nos interesa es determinar la cantidad de caminos que hay hast
 Por lo tanto lo que nos interesa es la suma de los valores de cada estado en un camino valido hasta un estado determinado. Para el caso n=2 seria lo siguiente:
 
 
-```latex { cmd=true hide = true aling='center'}
+```latex { cmd=true hide = true aling="center"}
 \documentclass{standalone}
 \usepackage{tikz}
 \usepackage{amsmath}
@@ -593,6 +573,8 @@ Por lo tanto lo que nos interesa es la suma de los valores de cada estado en un 
 ```
 
 
+
+
 Entonces tendriamos un total de 19 estados posibles:
 
 $$ \displaystyle \binom{0}{0} + \binom{1}{0} +\binom{1}{1} + \binom{2}{0} + \binom{2}{1} + \binom{2}{2} + \binom{3}{1} + \binom{3}{2} +\binom{4}{2}= 19 $$
@@ -635,7 +617,7 @@ $$ \sum_{j=0}^{n}\binom{j+k}{k}= \binom{n+k+1}{k+1}$$
 para un $k$ fijo, en la figura siguiente  se muestra para el caso $n=2$ y con $k=1$
 
 
-```latex {cmd=true hide align=center }
+```latex {cmd=true ,hide=true}
 \documentclass{standalone}
 \usepackage{tikz}
 \usepackage{amsmath}
@@ -794,23 +776,10 @@ Podemos hacer una poda en el backtraking para no analizar los estados que ya no 
 Aqui voy a poner una implementacion de un algoritmo backtraking que usa una poda para no analizar los estados que no cumplan que los bots puedan dar a lo sumo $n$ pasos cada uno .
 
 ### Implementacion de la Propuesta de Solucion 1  
+
 ##### Codigo en Python
-```python {cmd= /usr/bin/python3}
-MOD = 10**9+7 
-fact = [1]*(2*10**6+5) 
 
-for i in range(1,len(fact)):
-   fact[i] = (fact[i-1]* i)% (MOD)
-
-def C(n,k):
-    return (fact[n] * pow(fact[k], MOD - 2 , MOD)**2) % MOD
-
-if __name__ == "__main__":
-    #n = int(input())
-   n = 1
-  print (C(2*n+2 , n+1) -1 )  
-```
-
+@import "../code/HBots.py"{class="line-numbers" line_begin=4 line_end=25  }
 
 ##### Codigo en C#
 
@@ -858,11 +827,30 @@ namespace codeinCSharp
 
 ### Propuesta de Solucion 2
 
-```mermaid
-pie
-    title Pie Chart
-    "Dogs" : 386
-    "Cats" : 85
-    "Rats" : 150 
-    "David" : 100
+```python {cmd= /usr/bin/python3}
+MOD = 10**9+7 
+fact = [1]*(2*10**6+5) 
+
+for i in range(1,len(fact)):
+   fact[i] = (fact[i-1]* i)% (MOD)
+
+def C(n,k):
+    return (fact[n] * pow(fact[k], MOD - 2 , MOD)**2) % MOD
+
+if __name__ == "__main__":
+    #n = int(input())
+   n = 20
+   print (C(2*n+2 , n+1) -1 )  
 ```
+
+
+
+### Codigo Completo
+
+#### En Python 
+
+@import "../code/HBots.py"
+
+#### En CSharp 
+
+@import "../code/codeinCSharp/Program.cs"
