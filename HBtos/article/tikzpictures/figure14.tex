@@ -3,6 +3,7 @@
 \usepackage{amsmath}
 \usetikzlibrary{matrix}
 \usetikzlibrary {shapes.geometric}
+\usetikzlibrary {arrows.meta}
 \begin{document}
     
         \begin{tikzpicture}[ultra thick]
@@ -25,26 +26,26 @@
                     (7,6) node (n) [circle,draw] {N}
                     (9,6) node (o) [circle,draw] {O};
                 
-            \draw[ultra thick,red]  (node cs: name =a ) -> (node cs:name =b);
-            \draw[ultra thick,blue] (node cs: name =a ) -- (node cs:name =c);
-            \draw[ultra thick,red] (node cs: name =b ) -- (node cs:name =d);
-            \draw[ultra thick,blue] (node cs: name =b ) -- (node cs:name =e);
-            \draw[thick,red] (node cs: name =d ) -- (node cs:name =g);
-            \draw[ultra thick,red] (node cs: name =c ) -- (node cs:name =e);
-            \draw[ultra thick,blue] (node cs: name =c ) -- (node cs:name =f);
-            \draw[thick,red] (node cs: name =g ) -- (node cs:name =k);
-            \draw[thick,blue] (node cs: name =g ) -- (node cs:name =l);
-            \draw[ultra thick,blue] (node cs: name =d ) -- (node cs:name =h);
-            \draw[thick,red] (node cs: name =h ) -- (node cs:name =l);
-            \draw[ultra thick,red] (node cs: name =e ) -- (node cs:name =h);
-            \draw[ultra thick,blue] (node cs: name =h ) -- (node cs:name =m);
-            \draw[ultra thick,blue] (node cs: name =e ) -- (node cs:name =i);
-            \draw[ultra thick,red] (node cs: name =i ) -- (node cs:name =m);
-            \draw[thick,blue] (node cs: name =i ) -- (node cs:name =n);
-            \draw[ultra thick,red] (node cs: name =f ) -- (node cs:name =i);
-            \draw[thick,blue] (node cs: name =f ) -- (node cs:name =j);
-            \draw[thick,red] (node cs: name =j ) -- (node cs:name =n);
-            \draw[thick,blue] (node cs: name =j ) -- (node cs:name =o);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill = red]},red]  (node cs: name =a ) -> (node cs:name =b);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =a ) -- (node cs:name =c);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =b ) -- (node cs:name =d);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =b ) -- (node cs:name =e);
+            \draw[thin,arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =d ) -- (node cs:name =g);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =c ) -- (node cs:name =e);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =c ) -- (node cs:name =f);
+            \draw[thin,arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =g ) -- (node cs:name =k);
+            \draw[thin,arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =g ) -- (node cs:name =l);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =d ) -- (node cs:name =h);
+            \draw[thin,arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =h ) -- (node cs:name =l);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =e ) -- (node cs:name =h);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =h ) -- (node cs:name =m);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =e ) -- (node cs:name =i);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =i ) -- (node cs:name =m);
+            \draw[thin,arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =i ) -- (node cs:name =n);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =f ) -- (node cs:name =i);
+            \draw[thin,arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =f ) -- (node cs:name =j);
+            \draw[thin,arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =j ) -- (node cs:name =n);
+            \draw[thin,arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =j ) -- (node cs:name =o);
         \end{tikzpicture}
 
 \end{document}

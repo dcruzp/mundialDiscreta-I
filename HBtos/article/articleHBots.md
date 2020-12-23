@@ -69,12 +69,12 @@ En el sigiente grafico vamos a ver como podemos estudiar los posibles estados pa
 Para el caso en que los dos pueden dar 2 pasos cada una , vamos a ver un grafico en el que se muestra el comportamiento para determinados estados (haciendo por un arbol)
 
 #### Comienzo 
-> Un estado inicial, donde tenemos un solo estado (A), desde donde partimos (todavia no se han hecho moviminetos )
+> Un estado inicial, donde tenemos un solo estado (A), desde donde partimos (todavia no se han hecho moviminetos ).
 
 @import "tikzpictures/figure0.tex" {cmd =true hide=true}
 
 #### Turno 1 
-> Desde el estado inicial tenemos dos posibilidades, movernos con el bot rojo, o movernos con el bot azul, por lo que se nos adicionan dos estados mas , uno en el que nos movimos con el bot rojo  desde el estado A hasta el estado B, y otro en el que nos movemos con el bot azul desde el estado A hasta el estado B
+> Desde el estado inicial tenemos dos posibilidades, movernos con el bot rojo, o movernos con el bot azul, por lo que se nos adicionan dos estados mas , uno en el que nos movimos con el bot rojo  desde el estado A hasta el estado B, y otro en el que nos movemos con el bot azul desde el estado A hasta el estado B.
 
 
 
@@ -84,208 +84,32 @@ Para el caso en que los dos pueden dar 2 pasos cada una , vamos a ver un grafico
 #### Turno 2
 > Despues puedemos hacer un movimiento mas con cada bot. Por lo que desde el estado B podriamos movernos con el bot rojo o con el azul, y lo mismo desde el estado C. Lo que nos crea cuatro nuevos estado (D,E,F,G).
 
-```latex {cmd=true hide =true }
-\documentclass{standalone}
-\usepackage{tikz}
-\usepackage{amsmath}
-\usetikzlibrary{matrix}
-\usetikzlibrary {shapes.geometric}
-\begin{document}
-         \begin{tikzpicture}
-
-            %\draw [help lines] (0,0) grid (10,10); 
-
-            \path   (5,10)  node (a) [circle,draw] {A}
-                    (3,9) node (b) [circle,draw] {B}
-                    (7,9) node (c) [circle,draw] {C}
-                    (2,8) node (d) [circle,draw] {D}
-                    (4,8) node (e) [circle,draw] {E}
-                    (6,8) node (f) [circle,draw] {F}
-                    (8,8) node (g) [circle,draw] {G};
-                    
-                
-            \draw[thick,red]  (node cs: name =a ) -- (node cs:name =b);
-            \draw[thick,blue] (node cs: name =a ) -- (node cs:name =c);
-            \draw[thick,red] (node cs: name =b ) -- (node cs:name =d);
-            \draw[thick,blue] (node cs: name =b ) -- (node cs:name =e);
-            \draw[thick,red] (node cs: name =c ) -- (node cs:name =f);
-            \draw[thick,blue] (node cs: name =c ) -- (node cs:name =g);
-            
-        \end{tikzpicture}
-\end{document}
-```
+@import "tikzpictures/figure4.tex" {cmd =true hide= true }
 
 #### Turno 3
 > Ahora tenemos cuatro estados desde los que podemos tomar deciciones (D,E,F,G) y se nos forman 8 nuevos estados (H,I,J,K,L,M,N,O) . pues por cada estado tenemos dos posibilidades , y si partimos desde cuatro estados distintos entonces se nos forman ocho nuevos estados
 
 
-```latex {cmd=true hide=true}
-\documentclass{standalone}
-\usepackage{tikz}
-\usepackage{amsmath}
-\usetikzlibrary{matrix}
-\usetikzlibrary {shapes.geometric}
-\begin{document}
-         \begin{tikzpicture}
-
-            %\draw [help lines] (0,0) grid (16,16); 
-
-            \path   (8,10)  node (a) [circle,draw] {A}
-                    (4,9) node (b) [circle,draw] {B}
-                    (12,9) node (c) [circle,draw] {C}
-                    (2,8) node (d) [circle,draw] {D}
-                    (6,8) node (e) [circle,draw] {E}
-                    (10,8) node (f) [circle,draw] {F}
-                    (14,8) node (g) [circle,draw] {G}
-                    (1,7) node (h) [circle,draw,fill=gray] {H}
-                    (3,7) node (i) [circle,draw] {I}
-                    (5,7) node (j) [circle,draw] {J}
-                    (7,7) node (k) [circle,draw] {K}
-                    (9,7) node (l) [circle,draw] {L}
-                    (11,7) node (m) [circle,draw] {M}
-                    (13,7) node (n) [circle,draw] {N}
-                    (15,7) node (o) [circle,draw,fill = gray] {O};
-
-                    
-                
-            \draw[thick,red]  (node cs: name =a ) -- (node cs:name =b);
-            \draw[thick,blue] (node cs: name =a ) -- (node cs:name =c);
-            \draw[thick,red] (node cs: name =b ) -- (node cs:name =d);
-            \draw[thick,blue] (node cs: name =b ) -- (node cs:name =e);
-            \draw[thick,red] (node cs: name =c ) -- (node cs:name =f);
-            \draw[thick,blue] (node cs: name =c ) -- (node cs:name =g);
-            \draw[thick,black] (node cs: name =d ) -- (node cs:name =h);
-            \draw[thick,red] (node cs: name =e ) -- (node cs:name =j);
-            \draw[thick,red] (node cs: name =f ) -- (node cs:name =l);
-            \draw[thick,red] (node cs: name =g) -- (node cs:name =n);
-            \draw[thick,blue] (node cs: name =d ) -- (node cs:name =i);
-            \draw[thick,blue] (node cs: name =e ) -- (node cs:name =k);
-            \draw[thick,blue] (node cs: name =f) -- (node cs:name =m);
-            \draw[thick,black] (node cs: name =g ) -- (node cs:name =o);
-            
-        \end{tikzpicture}
-\end{document}
-```
+@import "tikzpictures/figure5.tex" {cmd =true hide= true }
 
 >Pero si nos damos cuenta, en el tercer turno, cuando se determino moverse a un estado H nos movimo usando el bot rojo , pero cada robot puede dar a lo sumo 2 pasos, y en el estado H hemos dado tres pasos con el bot rojo, por lo tanto ese movimiento no es valido, luego en un juego donde cada bot puede dar a lo sumo 2 paso no puede haber un estado H. Igua pasa en el paso de estado del G al O.
 >
 >Por lo tanto los estados validos para el tercer turno son los que se presentan a continuacion
 
 
-```latex {cmd=true hide=true}
-\documentclass{standalone}
-\usepackage{tikz}
-\usepackage{amsmath}
-\usetikzlibrary{matrix}
-\usetikzlibrary {shapes.geometric}
-\begin{document}
-         \begin{tikzpicture}
-
-            %\draw [help lines] (0,0) grid (16,16); 
-
-            \path   (8,10)  node (a) [circle,draw] {A}
-                    (5,9) node (b) [circle,draw] {B}
-                    (11,9) node (c) [circle,draw] {C}
-                    (4,8) node (d) [circle,draw] {D}
-                    (6,8) node (e) [circle,draw] {E}
-                    (10,8) node (f) [circle,draw] {F}
-                    (12,8) node (g) [circle,draw] {G}
-                    (3,7) node (h) [circle,draw] {H}
-                    (5,7) node (i) [circle,draw] {I}
-                    (7,7) node (j) [circle,draw] {J}
-                    (9,7) node (k) [circle,draw] {K}
-                    (11,7) node (l) [circle,draw] {L}
-                    (13,7) node (m) [circle,draw] {M};
-                    %(13,7) node (n) [circle,draw] {N}
-                    %(15,7) node (o) [circle,draw] {O};
-
-                    
-                
-            \draw[thick,red]  (node cs: name =a ) -- (node cs:name =b);
-            \draw[thick,blue] (node cs: name =a ) -- (node cs:name =c);
-            \draw[thick,red] (node cs: name =b ) -- (node cs:name =d);
-            \draw[thick,blue] (node cs: name =b ) -- (node cs:name =e);
-            \draw[thick,red] (node cs: name =c ) -- (node cs:name =f);
-            \draw[thick,blue] (node cs: name =c ) -- (node cs:name =g);
-            \draw[thick,blue] (node cs: name =d ) -- (node cs:name =h);
-            \draw[thick,red] (node cs: name =e ) -- (node cs:name =i);
-            \draw[thick,blue] (node cs: name =e ) -- (node cs:name =j);
-            \draw[thick,red] (node cs: name =f) -- (node cs:name =k);
-            \draw[thick,blue] (node cs: name =f ) -- (node cs:name =l);
-            \draw[thick,red] (node cs: name =g ) -- (node cs:name =m);
-            %\draw[thick,blue] (node cs: name =f) -- (node cs:name =m);
-            %\draw[thick,black] (node cs: name =g ) -- (node cs:name =o);
-            
-        \end{tikzpicture}
-\end{document}
-```
+@import "tikzpictures/figure6.tex" {cmd =true hide= true }
 
 #### Turno 4
 
 > luego en el ultimo turno solo tendremos seis estados mas, donde se cumple que cada uno de los bot camina exactamente dos veces. Por lo tanto tenemos el siguiente formato de estados. Donde en total tenemos 19 estados. En la figura se muestran los posibles estados.
 
-```latex {cmd=true hide=true}
-\documentclass{standalone}
-\usepackage{tikz}
-\usepackage{amsmath}
-\usetikzlibrary{matrix}
-\usetikzlibrary {shapes.geometric}
-\begin{document}
-\begin{tikzpicture}
-
-            %\draw [help lines] (0,0) grid (16,16); 
-
-            \path   (8,10)  node (a) [circle,draw] {A}
-                    (5,9) node (b) [circle,draw] {B}
-                    (11,9) node (c) [circle,draw] {C}
-                    (4,8) node (d) [circle,draw] {D}
-                    (6,8) node (e) [circle,draw] {E}
-                    (10,8) node (f) [circle,draw] {F}
-                    (12,8) node (g) [circle,draw] {G}
-                    (3,7) node (h) [circle,draw] {H}
-                    (5,7) node (i) [circle,draw] {I}
-                    (7,7) node (j) [circle,draw] {J}
-                    (9,7) node (k) [circle,draw] {K}
-                    (11,7) node (l) [circle,draw] {L}
-                    (13,7) node (m) [circle,draw] {M}
-                    (3,6) node (n) [circle,draw] {N}
-                    (5,6) node (o) [circle,draw] {O}
-                    (7,6) node (p) [circle,draw] {P}
-                    (9,6) node (q) [circle,draw] {Q}
-                    (11,6) node (r) [circle,draw] {R}
-                    (13,6) node (s) [circle,draw] {S};
-
-                    
-                
-            \draw[thick,red]  (node cs: name =a ) -- (node cs:name =b);
-            \draw[thick,blue] (node cs: name =a ) -- (node cs:name =c);
-            \draw[thick,red] (node cs: name =b ) -- (node cs:name =d);
-            \draw[thick,blue] (node cs: name =b ) -- (node cs:name =e);
-            \draw[thick,red] (node cs: name =c ) -- (node cs:name =f);
-            \draw[thick,blue] (node cs: name =c ) -- (node cs:name =g);
-            \draw[thick,blue] (node cs: name =d ) -- (node cs:name =h);
-            \draw[thick,red] (node cs: name =e ) -- (node cs:name =i);
-            \draw[thick,blue] (node cs: name =e ) -- (node cs:name =j);
-            \draw[thick,red] (node cs: name =f) -- (node cs:name =k);
-            \draw[thick,blue] (node cs: name =f ) -- (node cs:name =l);
-            \draw[thick,red] (node cs: name =g ) -- (node cs:name =m);
-            \draw[thick,blue] (node cs: name =h) -- (node cs:name =n);
-            \draw[thick,blue] (node cs: name =i ) -- (node cs:name =o);
-            \draw[thick,red] (node cs: name =j ) -- (node cs:name =p);
-            \draw[thick,blue] (node cs: name =k ) -- (node cs:name =q);
-            \draw[thick,red] (node cs: name =l ) -- (node cs:name =r);
-            \draw[thick,red] (node cs: name =m ) -- (node cs:name =s);
-            
-            
-        \end{tikzpicture}
-\end{document}
-```
+@import "tikzpictures/figure7.tex" {cmd =true hide= true }
 
 ### Similitud con el Triangulo de Pascal
 
 Si analizamos el esquema sigiente podemos ver que todos los caminos que llevan a estados que son finales (donde cada bot camina exactamente n pasos )quedan representados en el esquema siguiete desde A hasta M. Donde en cada estado se determina moverse a la derecha (linea azul) , o la izquierda (linea roja).
 
-@import "tikzpictures/figure14.tex" {cmd=true hide=true }
+@import "tikzpictures/figure14.tex" {cmd=true hide = true}
 
 Aqui vemos que todos los posibles caminos del **Turno 4** estan representados en la figura. y van desde el estado **A** hasta el estado **M**
 
