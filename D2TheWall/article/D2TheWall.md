@@ -107,4 +107,4 @@ El resultado de anterior  lo podemos justificar por el resulado estudiado en cla
 >
 >**Demostracion**
 >Tenemos que resolver la congruencia $a\cdot x \equiv 1 \left(\mod m\right)$ es equivalnete a resolver la ecuacion $a\cdot x + m\cdot y = 1$. Como mcd$\left(a,m\right) =1$, existen $s,t \in \mathbb{Z}$ tal que $s\cdot a + t\cdot m = 1$, por lo que tenemos la solucion $x=s$ para la ecuacion $a\cdot~x~\equiv~1~\left(~\mod~m~\right)$ .
-> Para la demostracion de la unicidad tenemos que demostrar que si $a\cdot s \equiv 1 $ 
+> Para la demostracion de la unicidad tenemos que demostrar que si $a~\cdot~s~\equiv~1~\left(\mod m\right)$  y $a~\cdot~s^{'}~\equiv~1~\left(\mod m\right)$ , entonces $s \equiv~s^{'}~\left(~\mod~m~\right)$ 
