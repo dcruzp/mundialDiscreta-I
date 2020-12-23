@@ -85,7 +85,7 @@ Para el caso en que los dos pueden dar 2 pasos cada una , vamos a ver un grafico
 #### Turno 2
 > Despues puedemos hacer un movimiento mas con cada bot. Por lo que desde el estado B podriamos movernos con el bot rojo o con el azul, y lo mismo desde el estado C. Lo que nos crea cuatro nuevos estado (D,E,F,G).
 
-```latex {cmd=true hide=true}
+```latex {cmd=true hide =true }
 \documentclass{standalone}
 \usepackage{tikz}
 \usepackage{amsmath}
