@@ -46,14 +46,6 @@ Output
 19
 ```
 
-<!-- 
-$$\binom{0}{0}$$
-$$\binom{1}{0} \hspace{0.5cm} \binom{1}{1}$$
-$$\binom{2}{0} \hspace{0.5cm} \binom{2}{1}\hspace{0.5cm} \binom{2}{2}$$
-$$\binom{3}{0} \hspace{0.5cm} \binom{3}{1} \hspace{0.5cm} \binom{3}{2} \hspace{0.5cm} \binom{3}{3}$$
-$$\binom{4}{0} \hspace{0.5cm} \binom{4}{1} \hspace{0.5cm} \binom{4}{2} \hspace{0.5cm} \binom{4}{3} \hspace{0.5cm} \binom{4}{4}  $$ -->
-
-
 ## Solucion 
 
 >El problema nos pide calcualr la cantidad de estados posibles en que se puede encontrar en un momento determinado los dos bots 
