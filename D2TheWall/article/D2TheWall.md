@@ -41,7 +41,7 @@
 >>## Entrada
 >>>La primera línea contiene dos números enteros n y C separados por espacios, 1 ≤ n ≤ 500000, 1 ≤ C ≤ 200000.
 >>## Salida
->>>Imprime el número de muros diferentes que Heidi podría construir, módulo 106 + 3.
+>>>Imprime el número de muros diferentes que Heidi podría construir, módulo $10^6 + 3$.
 
 
 
@@ -83,3 +83,28 @@ Imput
 Output
 230574
 ```
+
+### Solucion 
+
+### Como calcular el $\binom{n}{k}$ modulo $m$ eficientemente 
+
+Necesitamos calcular $\binom{n}{k}$ modulo $m$  eficientemente. Si vemos en nuestro caso $m = 10^6 + 3$ es un numero primo. Si vemos para valores de $n$ mayores $\binom{n}{k}$ puede ser bastante grande si $k$ se aproxima a $\frac{n}{2}$. Por lo que necesitamo un resultado que nos permita clacular esos valores binomiales modulo $m$.
+
+> **El Pequeno teorema de Fermat (estudiado en clases)**
+> Sea  $p$ primo y $a \in \mathbb{Z}$ 
+> - Si mcd $\left(a,p\right) =1$ entonces, $a^{p-1} \equiv 1 \left(\mod p \right)$  
+> - Para cualquier $a \in \mathbb{Z}^+$ se tiene $a^p \equiv a \left(\mod p\right)$
+
+Pero tenemos que usando los resultados del Pequeno teorema de Fermat podemos obtener el siguiente resultado:
+
+> Sea $p$ primo y a cualquier entero tal que $p \nmid  a$. Entonces, $a^{p-2}$ es el inverso de $a$ modulo $p$
+>
+> **Demostracion**
+> Por el Pequeno Teorema de Fermat tenemos que $a^{p-1} \equiv 1\left(\mod p \right)$ , entonces tenemos que $a \cdot a^{p-2} \equiv 1 \left(\mod p \right)$, ahora sea $\bar{a}$ el inverso de $a$ modulo $p$ entonces $a^{p-2} \equiv \bar{a} \left(\mod p \right)$
+
+El resultado de anterior  lo podemos justificar por el resulado estudiado en clases:
+> Si mcd $\left( a, p \right)$ = 1 entonces $a \cdot x \equiv 1 \left(\mod p \right)$ tiene solución única $x = \bar{a}$ módulo $p$.
+>
+>**Demostracion**
+>Tenemos que resolver la congruencia $a\cdot x \equiv 1 \left(\mod m\right)$ es equivalnete a resolver la ecuacion $a\cdot x + m\cdot y = 1$. Como mcd$\left(a,m\right) =1$, existen $s,t \in \mathbb{Z}$ tal que $s\cdot a + t\cdot m = 1$, por lo que tenemos la solucion $x=s$ para la ecuacion $a\cdot~x~\equiv~1~\left(~\mod~m~\right)$ .
+> Para la demostracion de la unicidad tenemos que demostrar que si $a\cdot s \equiv 1 $ 

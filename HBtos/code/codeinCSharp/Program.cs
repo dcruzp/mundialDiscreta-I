@@ -19,11 +19,11 @@ namespace codeinCSharp
             else 
             {
                 count += 1;  // aumento el contador en 1 pues si llego aqui es porque es un estado valido, pues si llego aqui es porque r>0 (todavia se puede mover con el bot rojo )o b>0 (todavia se puede mover con el bot azul )
-                if (r > 0)
+                if (r > 0)   // si todavia se pueden dar mas pasos con el bot rojo 
                 {
                     backtraking (r-1, b, ref count) ; //llamo al backtraking movindome con el bot rojo a un estado  (llamando a la funcion recursiva disminuyendo la cuota de movimientos del bot rojo )
                 }
-                if (b > 0)
+                if (b > 0)  // si tidavia se pueden dar mas  pasos con el bot azul 
                 {
                     backtraking (r,b-1,ref count) ;  //llamo al backtraking movindome con el bot azul a un estado  (llamando a la funcion recursiva disminuyendo la cuota de movimientos del bot azul )
                 }
