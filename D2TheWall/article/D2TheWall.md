@@ -208,10 +208,10 @@ $$\left( n+C \right)!  \cdot {(n!)}^{10^6+3 - 2}\cdot {(C!)}^{10^6+3 - 2} \left(
 
 Luego usando este resultado es facil calcular el coeficiente binomico que nos plantea la solucion al problema.
 
-### Codigo 
+### Codigo
 
-#### Codigo en Python 
+#### Codigo en Python
 
-@import "../code/D2TheWall.py" {}
+@import "../code/D2TheWall.py" {class="line-numbers" line_begin=0 line_end=16}
 
 #### Codigo en CSharp
