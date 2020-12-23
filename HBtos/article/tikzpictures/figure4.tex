@@ -1,0 +1,29 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usetikzlibrary{matrix}
+\usetikzlibrary {shapes.geometric}
+\usetikzlibrary {arrows.meta}
+\begin{document}
+        \begin{tikzpicture}[ultra thick]
+
+            %\draw [help lines] (0,0) grid (10,10); 
+
+            \path   (5,10)  node (a) [circle,draw] {A}
+                    (3,9) node (b) [circle,draw] {B}
+                    (7,9) node (c) [circle,draw] {C}
+                    (2,8) node (d) [circle,draw] {D}
+                    (4,8) node (e) [circle,draw] {E}
+                    (6,8) node (f) [circle,draw] {F}
+                    (8,8) node (g) [circle,draw] {G};
+                    
+                
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red]  (node cs: name =a ) -- (node cs:name =b);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =a ) -- (node cs:name =c);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =b ) -- (node cs:name =d);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =b ) -- (node cs:name =e);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =c ) -- (node cs:name =f);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =c ) -- (node cs:name =g);
+    
+        \end{tikzpicture}
+\end{document}

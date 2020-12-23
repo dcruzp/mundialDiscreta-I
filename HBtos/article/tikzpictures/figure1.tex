@@ -3,8 +3,9 @@
 \usepackage{amsmath}
 \usetikzlibrary{matrix}
 \usetikzlibrary {shapes.geometric}
+\usetikzlibrary {arrows.meta}
 \begin{document}
-        \begin{tikzpicture}
+        \begin{tikzpicture}[ultra thick]
 
             %\draw [help lines] (0,0) grid (10,10); 
 
@@ -12,7 +13,7 @@
                     (4,9) node (b) [circle,draw] {B}
                     (6,9) node (c) [circle,draw] {C};
                 
-            \draw[thick,red]  (node cs: name =a ) -- (node cs:name =b);
-            \draw[thick,blue] (node cs: name =a ) -- (node cs:name =c);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red]  (node cs: name =a ) -- (node cs:name =b);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},blue] (node cs: name =a ) -- (node cs:name =c);
         \end{tikzpicture}
 \end{document}

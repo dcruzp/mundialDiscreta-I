@@ -1,0 +1,51 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usetikzlibrary{matrix}
+\usetikzlibrary {shapes.geometric}
+\usetikzlibrary {arrows.meta}
+\begin{document}
+    \begin{tikzpicture}[ultra thick]
+
+        %\draw [help lines] (0,0) grid (16,16); 
+
+        \path   (8,10)  node (a) [circle,draw] {A}
+                (5,9) node (b) [circle,draw] {B}
+                (11,9) node (c) [circle,draw] {C}
+                (4,8) node (d) [circle,draw] {D}
+                (6,8) node (e) [circle,draw] {E}
+                (10,8) node (f) [circle,draw] {F}
+                (12,8) node (g) [circle,draw] {G}
+                (3,7) node (h) [circle,draw] {H}
+                (5,7) node (i) [circle,draw] {I}
+                (7,7) node (j) [circle,draw] {J}
+                (9,7) node (k) [circle,draw] {K}
+                (11,7) node (l) [circle,draw] {L}
+                (13,7) node (m) [circle,draw] {M}
+                (3,5) node (n) [circle,draw] {N}
+                (5,5) node (o) [circle,draw] {O}
+                (7,5) node (p) [circle,draw] {P}
+                (9,5) node (q) [circle,draw] {Q}
+                (11,5) node (r) [circle,draw] {R}
+                (13,5) node (s) [circle,draw] {S};
+
+                \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red]  (node cs: name =a ) -- (node cs:name =b);
+                \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =a ) -- (node cs:name =c);
+                \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =b ) -- (node cs:name =d);
+                \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =b ) -- (node cs:name =e);
+                \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =c ) -- (node cs:name =f);
+                \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =c ) -- (node cs:name =g);
+                \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =d ) -- (node cs:name =h);
+                \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =e ) -- (node cs:name =i);
+                \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =e ) -- (node cs:name =j);
+                \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =f) -- (node cs:name =k);
+                \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =f ) -- (node cs:name =l);
+                \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =g ) -- (node cs:name =m);
+                \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =h) -- (node cs:name =n);
+                \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =i ) -- (node cs:name =o);
+                \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =j ) -- (node cs:name =p);
+                \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =k ) -- (node cs:name =q);
+                \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =l ) -- (node cs:name =r);
+                \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =m ) -- (node cs:name =s);
+    \end{tikzpicture}
+\end{document}

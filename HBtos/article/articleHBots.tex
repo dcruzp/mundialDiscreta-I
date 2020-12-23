@@ -1,5 +1,4 @@
 \documentclass{article}
-
 \usepackage{tikz}
 \usepackage{amsmath}
 \usetikzlibrary{matrix}
@@ -36,7 +35,7 @@
 
     \section*{Figura 0 }
     \begin{center}
-        \begin{tikzpicture}
+        \begin{tikzpicture}[ultra thick]
 
             %\draw [help lines] (0,0) grid (10,10); 
 
@@ -56,26 +55,26 @@
                     (7,6) node (n) [circle,draw] {N}
                     (9,6) node (o) [circle,draw] {O};
                 
-            \draw[thick,red]  (node cs: name =a ) -- (node cs:name =b);
-            \draw[thick,blue] (node cs: name =a ) -- (node cs:name =c);
-            \draw[thick,red] (node cs: name =b ) -- (node cs:name =d);
-            \draw[thick,blue] (node cs: name =b ) -- (node cs:name =e);
-            \draw[thick,red] (node cs: name =d ) -- (node cs:name =g);
-            \draw[thick,red] (node cs: name =c ) -- (node cs:name =e);
-            \draw[thick,blue] (node cs: name =c ) -- (node cs:name =f);
-            \draw[thick,red] (node cs: name =g ) -- (node cs:name =k);
-            \draw[thick,blue] (node cs: name =g ) -- (node cs:name =l);
-            \draw[thick,blue] (node cs: name =d ) -- (node cs:name =h);
-            \draw[thick,red] (node cs: name =h ) -- (node cs:name =l);
-            \draw[thick,red] (node cs: name =e ) -- (node cs:name =h);
-            \draw[thick,blue] (node cs: name =h ) -- (node cs:name =m);
-            \draw[thick,blue] (node cs: name =e ) -- (node cs:name =i);
-            \draw[thick,red] (node cs: name =i ) -- (node cs:name =m);
-            \draw[thick,blue] (node cs: name =i ) -- (node cs:name =n);
-            \draw[thick,red] (node cs: name =f ) -- (node cs:name =i);
-            \draw[thick,blue] (node cs: name =f ) -- (node cs:name =j);
-            \draw[thick,red] (node cs: name =j ) -- (node cs:name =n);
-            \draw[thick,blue] (node cs: name =j ) -- (node cs:name =o);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red]  (node cs: name =a ) -- (node cs:name =b);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =a ) -- (node cs:name =c);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =b ) -- (node cs:name =d);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =b ) -- (node cs:name =e);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =d ) -- (node cs:name =g);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =c ) -- (node cs:name =e);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =c ) -- (node cs:name =f);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =g ) -- (node cs:name =k);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =g ) -- (node cs:name =l);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =d ) -- (node cs:name =h);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =h ) -- (node cs:name =l);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =e ) -- (node cs:name =h);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =h ) -- (node cs:name =m);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =e ) -- (node cs:name =i);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =i ) -- (node cs:name =m);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =i ) -- (node cs:name =n);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =f ) -- (node cs:name =i);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =f ) -- (node cs:name =j);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =j ) -- (node cs:name =n);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =j ) -- (node cs:name =o);
         \end{tikzpicture}
     \end{center}
 
@@ -83,7 +82,7 @@
 
     \section*{Figura 1}
     \begin{center}
-        \begin{tikzpicture}
+        \begin{tikzpicture}[ultra thick]
 
             %\draw [help lines] (0,0) grid (10,10); 
 
@@ -103,26 +102,26 @@
                     (7,6) node (n) [circle,draw] {4}
                     (9,6) node (o) [circle,draw] {1};
                 
-            \draw[thick,red]  (node cs: name =a ) -- (node cs:name =b);
-            \draw[thick,blue] (node cs: name =a ) -- (node cs:name =c);
-            \draw[thick,red] (node cs: name =b ) -- (node cs:name =d);
-            \draw[thick,blue] (node cs: name =b ) -- (node cs:name =e);
-            \draw[thick,red] (node cs: name =d ) -- (node cs:name =g);
-            \draw[thick,red] (node cs: name =c ) -- (node cs:name =e);
-            \draw[thick,blue] (node cs: name =c ) -- (node cs:name =f);
-            \draw[thick,red] (node cs: name =g ) -- (node cs:name =k);
-            \draw[thick,blue] (node cs: name =g ) -- (node cs:name =l);
-            \draw[thick,blue] (node cs: name =d ) -- (node cs:name =h);
-            \draw[thick,red] (node cs: name =h ) -- (node cs:name =l);
-            \draw[thick,red] (node cs: name =e ) -- (node cs:name =h);
-            \draw[thick,blue] (node cs: name =h ) -- (node cs:name =m);
-            \draw[thick,blue] (node cs: name =e ) -- (node cs:name =i);
-            \draw[thick,red] (node cs: name =i ) -- (node cs:name =m);
-            \draw[thick,blue] (node cs: name =i ) -- (node cs:name =n);
-            \draw[thick,red] (node cs: name =f ) -- (node cs:name =i);
-            \draw[thick,blue] (node cs: name =f ) -- (node cs:name =j);
-            \draw[thick,red] (node cs: name =j ) -- (node cs:name =n);
-            \draw[thick,blue] (node cs: name =j ) -- (node cs:name =o);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red]  (node cs: name =a ) -- (node cs:name =b);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =a ) -- (node cs:name =c);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =b ) -- (node cs:name =d);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =b ) -- (node cs:name =e);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =d ) -- (node cs:name =g);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =c ) -- (node cs:name =e);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =c ) -- (node cs:name =f);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =g ) -- (node cs:name =k);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =g ) -- (node cs:name =l);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =d ) -- (node cs:name =h);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =h ) -- (node cs:name =l);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =e ) -- (node cs:name =h);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =h ) -- (node cs:name =m);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =e ) -- (node cs:name =i);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =i ) -- (node cs:name =m);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =i ) -- (node cs:name =n);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =f ) -- (node cs:name =i);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =f ) -- (node cs:name =j);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =j ) -- (node cs:name =n);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =j ) -- (node cs:name =o);
         \end{tikzpicture}
     \end{center}
    
@@ -192,7 +191,7 @@
     \section*{Figure 4}
 %Figura del TURNO 2 
     \begin{center}
-        \begin{tikzpicture}
+        \begin{tikzpicture}[ultra thick]
 
             %\draw [help lines] (0,0) grid (10,10); 
 
@@ -221,7 +220,7 @@
     \subsection*{Turno 3}
     %TURNO 3 
     \begin{center}
-        \begin{tikzpicture}
+        \begin{tikzpicture}[ultra thick]
 
             %\draw [help lines] (0,0) grid (16,16); 
 
@@ -267,7 +266,7 @@
     \subsubsection*{Turno 3.1}
     %Turno 3
     \begin{center}
-        \begin{tikzpicture}
+        \begin{tikzpicture}[ultra thick]
 
             %\draw [help lines] (0,0) grid (16,16); 
 
@@ -312,9 +311,9 @@
     \section*{Figure 7 }
 
     \begin{center}
-        \begin{tikzpicture}
+        \begin{tikzpicture}[ultra thick]
 
-            %\draw [help lines] (0,0) grid (16,16); 
+            % \draw [help lines] (0,0) grid (16,16); 
 
             \path   (8,10)  node (a) [circle,draw] {A}
                     (5,9) node (b) [circle,draw] {B}
@@ -329,33 +328,33 @@
                     (9,7) node (k) [circle,draw] {K}
                     (11,7) node (l) [circle,draw] {L}
                     (13,7) node (m) [circle,draw] {M}
-                    (3,6) node (n) [circle,draw] {N}
-                    (5,6) node (o) [circle,draw] {O}
-                    (7,6) node (p) [circle,draw] {P}
-                    (9,6) node (q) [circle,draw] {Q}
-                    (11,6) node (r) [circle,draw] {R}
-                    (13,6) node (s) [circle,draw] {S};
+                    (3,5) node (n) [circle,draw] {N}
+                    (5,5) node (o) [circle,draw] {O}
+                    (7,5) node (p) [circle,draw] {P}
+                    (9,5) node (q) [circle,draw] {Q}
+                    (11,5) node (r) [circle,draw] {R}
+                    (13,5) node (s) [circle,draw] {S};
 
                     
                 
-            \draw[thick,red]  (node cs: name =a ) -- (node cs:name =b);
-            \draw[thick,blue] (node cs: name =a ) -- (node cs:name =c);
-            \draw[thick,red] (node cs: name =b ) -- (node cs:name =d);
-            \draw[thick,blue] (node cs: name =b ) -- (node cs:name =e);
-            \draw[thick,red] (node cs: name =c ) -- (node cs:name =f);
-            \draw[thick,blue] (node cs: name =c ) -- (node cs:name =g);
-            \draw[thick,blue] (node cs: name =d ) -- (node cs:name =h);
-            \draw[thick,red] (node cs: name =e ) -- (node cs:name =i);
-            \draw[thick,blue] (node cs: name =e ) -- (node cs:name =j);
-            \draw[thick,red] (node cs: name =f) -- (node cs:name =k);
-            \draw[thick,blue] (node cs: name =f ) -- (node cs:name =l);
-            \draw[thick,red] (node cs: name =g ) -- (node cs:name =m);
-            \draw[thick,blue] (node cs: name =h) -- (node cs:name =n);
-            \draw[thick,blue] (node cs: name =i ) -- (node cs:name =o);
-            \draw[thick,red] (node cs: name =j ) -- (node cs:name =p);
-            \draw[thick,blue] (node cs: name =k ) -- (node cs:name =q);
-            \draw[thick,red] (node cs: name =l ) -- (node cs:name =r);
-            \draw[thick,red] (node cs: name =m ) -- (node cs:name =s);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red]  (node cs: name =a ) -- (node cs:name =b);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =a ) -- (node cs:name =c);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =b ) -- (node cs:name =d);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =b ) -- (node cs:name =e);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =c ) -- (node cs:name =f);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =c ) -- (node cs:name =g);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =d ) -- (node cs:name =h);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =e ) -- (node cs:name =i);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =e ) -- (node cs:name =j);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =f) -- (node cs:name =k);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =f ) -- (node cs:name =l);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =g ) -- (node cs:name =m);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =h) -- (node cs:name =n);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =i ) -- (node cs:name =o);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =j ) -- (node cs:name =p);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = blue]},blue] (node cs: name =k ) -- (node cs:name =q);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =l ) -- (node cs:name =r);
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill = red]},red] (node cs: name =m ) -- (node cs:name =s);
             
             
         \end{tikzpicture}
@@ -365,7 +364,7 @@
     
     \section*{Figure 8 }
     \begin{center}
-        \begin{tikzpicture}
+        \begin{tikzpicture}[ultra thick]
 
             % \draw [help lines] (0,0) grid (8,12); 
 
@@ -478,7 +477,7 @@
     \section*{Figure 9}
     \subsection*{Hockey-Stick Identity}
     \begin{center}
-        \begin{tikzpicture}
+        \begin{tikzpicture}[ultra thick]
 
             % \draw [help lines] (0,0) grid (13,6); 
 
@@ -590,7 +589,7 @@
 
     \section*{Figure 10}
     \begin{center}
-        \begin{tikzpicture}
+        \begin{tikzpicture}[ultra thick]
 
             % \draw [help lines] (0,0) grid (13,6); 
 
@@ -646,7 +645,7 @@
 
     \subsection*{Hockey-Stick Identity}
     \begin{center}
-        \begin{tikzpicture}
+        \begin{tikzpicture}[ultra thick]
 
             % \draw [help lines] (0,0) grid (13,6); 
 
@@ -761,7 +760,7 @@
     \subsection*{\'Arbol generado por backtraking}
     \tikzstyle{miEstilo}= [thin, dotted, ]
     \begin{center}
-        \begin{tikzpicture}
+        \begin{tikzpicture}[ultra thick]
             
 
             %\draw [help lines] (0,0) grid (16,5); 
@@ -944,11 +943,11 @@
     \section*{Figure 14}
 
     \begin{center}    
-        \begin{tikzpicture}
+        \begin{tikzpicture}[ultra thick]
 
             %\draw [help lines] (0,0) grid (10,10); 
 
-            \path   (5,10)  node (a) [circle ,black,draw, fill = red] {A}
+            \path   (5,10) node (a) [circle,draw,fill = red] {A}
                     (4,9) node (b) [circle,draw,fill = gray] {B}
                     (6,9) node (c) [circle,draw,fill = gray] {C}
                     (3,8) node (d) [circle,draw,fill = gray] {D}
@@ -963,34 +962,29 @@
                     (5,6) node (m) [circle,draw,fill = blue] {M}
                     (7,6) node (n) [circle,draw] {N}
                     (9,6) node (o) [circle,draw] {O};
-                
-            \draw[ultra thick,red]  (node cs: name =a ) -> (node cs:name =b);
-            \draw[ultra thick,blue] (node cs: name =a ) -- (node cs:name =c);
-            \draw[ultra thick,red] (node cs: name =b ) -- (node cs:name =d);
-            \draw[ultra thick,blue] (node cs: name =b ) -- (node cs:name =e);
-            \draw[thick,red] (node cs: name =d ) -- (node cs:name =g);
-            \draw[ultra thick,red] (node cs: name =c ) -- (node cs:name =e);
-            \draw[ultra thick,blue] (node cs: name =c ) -- (node cs:name =f);
-            \draw[thick,red] (node cs: name =g ) -- (node cs:name =k);
-            \draw[thick,blue] (node cs: name =g ) -- (node cs:name =l);
-            \draw[ultra thick,blue] (node cs: name =d ) -- (node cs:name =h);
-            \draw[thick,red] (node cs: name =h ) -- (node cs:name =l);
-            \draw[ultra thick,red] (node cs: name =e ) -- (node cs:name =h);
-            \draw[ultra thick,blue] (node cs: name =h ) -- (node cs:name =m);
-            \draw[ultra thick,blue] (node cs: name =e ) -- (node cs:name =i);
-            \draw[ultra thick,red] (node cs: name =i ) -- (node cs:name =m);
-            \draw[thick,blue] (node cs: name =i ) -- (node cs:name =n);
-            \draw[ultra thick,red] (node cs: name =f ) -- (node cs:name =i);
-            \draw[thick,blue] (node cs: name =f ) -- (node cs:name =j);
-            \draw[thick,red] (node cs: name =j ) -- (node cs:name =n);
-            \draw[thick,blue] (node cs: name =j ) -- (node cs:name =o);
+         
+
+     
+            \draw[arrows = -{Triangle[open,angle=60:2mm,fill=blue]},blue]  (node cs: name =a ) -- (node cs:name =b);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill=blue]},blue] (node cs: name =a ) -- (node cs:name =c);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill=red]},red] (node cs: name =b ) -- (node cs:name =d);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill=blue]},blue] (node cs: name =b ) -- (node cs:name =e);
+            \draw[thick,arrows = -{Triangle[open,angle=60:2mm,fill=red]},red] (node cs: name =d ) -- (node cs:name =g);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill=red]},red] (node cs: name =c ) -- (node cs:name =e);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill=blue]},blue] (node cs: name =c ) -- (node cs:name =f);
+            \draw[thick,arrows = -{Triangle[open,angle=60:2mm,fill=red]},red] (node cs: name =g ) -- (node cs:name =k);
+            \draw[thick,arrows = -{Triangle[open,angle=60:2mm,fill=blue]},blue] (node cs: name =g ) -- (node cs:name =l);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill=blue]},blue] (node cs: name =d ) -- (node cs:name =h);
+            \draw[thick,arrows = -{Triangle[open,angle=60:2mm,fill=red]},red] (node cs: name =h ) -- (node cs:name =l);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill=red]},red] (node cs: name =e ) -- (node cs:name =h);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill=blue]},blue] (node cs: name =h ) -- (node cs:name =m);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill=blue]},blue] (node cs: name =e ) -- (node cs:name =i);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill=red]},red] (node cs: name =i ) -- (node cs:name =m);
+            \draw[thick,arrows = -{Triangle[open,angle=60:2mm,fill=blue]},blue] (node cs: name =i ) -- (node cs:name =n);
+            \draw[ultra thick,arrows = -{Triangle[open,angle=60:2mm,fill=red]},red] (node cs: name =f ) -- (node cs:name =i);
+            \draw[thick,arrows = -{Triangle[open,angle=60:2mm,fill=blue]},blue] (node cs: name =f ) -- (node cs:name =j);
+            \draw[thick,arrows = -{Triangle[open,angle=60:2mm,fill=red]},red] (node cs: name =j ) -- (node cs:name =n);
+            \draw[thick,arrows = -{Triangle[open,angle=60:2mm,fill=blue]},blue] (node cs: name =j ) -- (node cs:name =o);
         \end{tikzpicture}
     \end{center}
-
-
-    \newpage 
-
-    \section*{Figura 15}
-
-    
 \end{document}
