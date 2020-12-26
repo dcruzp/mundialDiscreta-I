@@ -71,39 +71,65 @@ Para el caso en que los dos pueden dar 2 pasos cada una , vamos a ver un grafico
 #### Comienzo 
 > Un estado inicial, donde tenemos un solo estado (A), desde donde partimos (todavia no se han hecho moviminetos ).
 
-@import "tikzpictures/figure0.tex" {cmd =true hide=true}
+<div style="text-align: center">
+<div>  </div>
+
+@import "tikzpictures/figure0.tex" {cmd =true hide =true  }
+
+</div>
 
 #### Turno 1 
 > Desde el estado inicial tenemos dos posibilidades, movernos con el bot rojo, o movernos con el bot azul, por lo que se nos adicionan dos estados mas , uno en el que nos movimos con el bot rojo  desde el estado A hasta el estado B, y otro en el que nos movemos con el bot azul desde el estado A hasta el estado B.
 
+<div style="text-align: center">
+<div>  </div>
 
+@import "tikzpictures/figure1.tex" {cmd =true hide =true }
 
-@import "tikzpictures/figure1.tex" {cmd =true hide= true }
-
+</div>
 
 #### Turno 2
 > Despues puedemos hacer un movimiento mas con cada bot. Por lo que desde el estado B podriamos movernos con el bot rojo o con el azul, y lo mismo desde el estado C. Lo que nos crea cuatro nuevos estado (D,E,F,G).
 
-@import "tikzpictures/figure4.tex" {cmd =true hide= true }
+<div style="text-align: center">
+<div>  </div>
+
+@import "tikzpictures/figure4.tex" {cmd =true hide =true  }
+
+</div>
 
 #### Turno 3
+
 > Ahora tenemos cuatro estados desde los que podemos tomar deciciones (D,E,F,G) y se nos forman 8 nuevos estados (H,I,J,K,L,M,N,O) . pues por cada estado tenemos dos posibilidades , y si partimos desde cuatro estados distintos entonces se nos forman ocho nuevos estados
 
+<div style="text-align: center">
+<div>  </div>
 
-@import "tikzpictures/figure5.tex" {cmd =true hide= true }
+@import "tikzpictures/figure5.tex" {cmd =true hide=true  }
+
+</div>
 
 >Pero si nos damos cuenta, en el tercer turno, cuando se determino moverse a un estado H nos movimo usando el bot rojo , pero cada robot puede dar a lo sumo 2 pasos, y en el estado H hemos dado tres pasos con el bot rojo, por lo tanto ese movimiento no es valido, luego en un juego donde cada bot puede dar a lo sumo 2 paso no puede haber un estado H. Igua pasa en el paso de estado del G al O.
 >
 >Por lo tanto los estados validos para el tercer turno son los que se presentan a continuacion
 
+<div style="text-align: center">
+<div>  </div>
 
 @import "tikzpictures/figure6.tex" {cmd =true hide= true }
+
+</div>
 
 #### Turno 4
 
 > luego en el ultimo turno solo tendremos seis estados mas, donde se cumple que cada uno de los bot camina exactamente dos veces. Por lo tanto tenemos el siguiente formato de estados. Donde en total tenemos 19 estados. En la figura se muestran los posibles estados.
 
-@import "tikzpictures/figure7.tex" {cmd =true hide= true }
+<div style="text-align: center">
+<div>  </div>
+
+@import "tikzpictures/figure7.tex" {cmd =true hide = true }
+
+</div>
 
 ### Similitud con el Triangulo de Pascal
 
@@ -119,21 +145,34 @@ Pero si vemos que la cantidad de caminos posibles partiendo desde **A** hasta ca
 
 En el ejemplo para n=2 en la figura los posibles caminos que tenemos son:
 
-@import "tikzpictures/figure8.tex" {cmd =true hide=true }
+<div style="text-align: center">
+<div>  </div>
+
+@import "tikzpictures/figure8.tex" {cmd =true hide = true }
+
+</div>
 
 Podemos ver que la cantidad de caminos desde **A** hasta un estado determinado coincide con los numeros en la distribucion del Triangulo de Pascal. Como se ve en la figura siguiente:
 
+<div style="text-align: center">
+<div>  </div>
 
-@import "tikzpictures/figure2.tex" {cmd = true hide=true}
+@import "tikzpictures/figure2.tex" {cmd = true hide=true }
 
-
+</div>
 
 Luego como lo que nos interesa es determinar la cantidad de caminos que hay hasta un estado determinado partiendo desde el estado inicial (estado A). Pero los valores en el triangulo de Pascal te da la cantidad de caminos hasta una posicion determinada.
 
 Por lo tanto lo que nos interesa es la suma de los valores de cada estado en un camino valido hasta un estado determinado. Para el caso n=2 seria lo siguiente:
 
 
-@import "tikzpictures/figure13.tex" {{cmd =true hide =true }}
+<div style="text-align: center">
+<div>  </div>
+
+@import "tikzpictures/figure13.tex" {{cmd =true  hide=true }}
+
+</div>
+
 
 Entonces tendriamos un total de 19 estados posibles:
 
@@ -220,7 +259,12 @@ Aqui voy a poner una implementacion de un algoritmo backtraking que usa una poda
 
 La figura siguiente muestra los estados analizados por el algoritmo para un $n=2$, en gris los nodos que son validos y en negro los vertices que se podaron (que son los vertices que no cumplen que cada bot camine a lo sumo 2 pasos)
 
-@import "tikzpictures/figure12.tex" {cmd = true hide = true }
+<div style="text-align: center">
+<div>  </div>
+
+@import "tikzpictures/figure12.tex" {cmd = true hide=true  }
+
+</div>
 
 aqui podemos ver que la cantidad de nodos validos es 19 , por lo que. En los estados que estan en negro es porque en el instante es que el algoritmo determina moverse a un estado en negro es porque no cumple que cada bot de a lo sumo mas de dos movimientos , por lo tanto esos estados se podan en el algoritmo, pueds no seran validos para nuetra respuesta 
 ### Implementacion de la Propuesta de Solucion 1  

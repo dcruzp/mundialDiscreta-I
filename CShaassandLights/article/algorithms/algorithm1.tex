@@ -1,0 +1,26 @@
+\documentclass {standalone}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+
+\begin{document}
+    \begin{algorithm}[H]
+        \DontPrintSemicolon
+        \SetAlgoLined
+        \KwResult{in count remains the number of ways to turn on the lights}
+        \SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
+        \Input{initial layout of the array of lights}
+        %\Output{Write here the output}
+        \BlankLine
+        \eIf{n == \textbf{len} (light)}{
+                count = count + 1 \;
+            }{
+                \ForAll {item $\in$ light}{
+                    \If{item is off \textbf{and} cantTurnOn (item)}{
+                        item $\leftarrow$ On\;
+                        backtraking(light,n+1,count)\;
+                        item $\leftarrow$ Off\;
+                    }
+                }
+            }
+        \caption{The number of ways to turn on the lights}
+    \end{algorithm}
+\end{document}

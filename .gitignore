@@ -15,3 +15,5 @@ obj/
 *.png
 
 HBtos/article/img/
+
+*.html

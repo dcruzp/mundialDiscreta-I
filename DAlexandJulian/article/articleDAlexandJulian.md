@@ -53,7 +53,7 @@ Output
 ```
 $\alpha$
 
-```ditaa
+```ditaa {cmd = true}
 
   +-----+     +-----+
   |hello| --> |world|
