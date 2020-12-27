@@ -32,17 +32,15 @@ fact = [1]*(2*10**6+5)  # declaro un array de longitud mayor que 2*10^6 +2 donde
 for i in range(1,len(fact)): # recorro todos los valores de array fact y calculo el factorial de un numero y lo guardo en el indice (para despues poder acceder a el en O(1))
     fact[i] = (fact[i-1]* i)% (MOD)  # el factiral de i es el factorial de i-1 por i , y me quedo con el su modulo 10^9+7 
 
-# me devuelve n en k 
+# me devuelve n en k  (en este caso n-k = k , por lo que solo elevo al cuadrado )
 # n cantidad de objetos 
 # k tamano de los subconjuntos 
 def C(n,k): 
     return (fact[n] * pow(fact[k], MOD - 2 , MOD)**2) % MOD
 
 if __name__ == "__main__":
-    #n = int(input())
-
-    n = 12
+    n = int(input())
     print (C(2*n+2 , n+1) -1 )
 
-    print(solBacktraking(n))
+    #print(solBacktraking(n))
 
