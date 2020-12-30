@@ -43,27 +43,24 @@ def backtraking (light,n):
                 light[i] = False
                 
 
+MOD= 1000000007
+fact = [1]*2000
+for i in range(1,2000):
+    fact[i]=fact[i-1]*i%MOD
 
-# MOD= 1000000007
-# fact = [1]*2000
-# for i in range(1,2000):
-#     fact[i]=fact[i-1]*i%MOD
+n,m = map(int,input().split())
+a = sorted(map(int,input().split()))
+b = []
+for i in range (1,m):
+    x=a[i]-a[i-1]-1
+    if(x>0):
+        b.append(x)
 
-# n,m = map(int,input().split())
-# a = sorted(map(int,input().split()))
-# b = []
-# for i in range (1,m):
-#     x=a[i]-a[i-1]-1
-#     if(x>0):
-#         b.append(x)
-# #print(b)
-# count = pow(2,sum(b)-len(b),MOD)*fact[n-m]%MOD
-# #print(count)
-# b = [a[0]-1]+b+[n-a[-1]]
-# #print(b)
-# #print(f[3])
-# for i in b:
-# 	count = count*pow(fact[i],MOD-2,MOD)%MOD
-# 	#print(pow(f[i],M-2,M))
-# 	#print(i)
-# print(count)
+count = pow(2,sum(b)-len(b),MOD)*fact[n-m]%MOD
+
+b = [a[0]-1]+b+[n-a[-1]]
+print(b)
+for i in b:
+	count = count*pow(fact[i],MOD-2,MOD)%MOD
+
+print(count)

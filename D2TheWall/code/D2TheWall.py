@@ -8,16 +8,14 @@ for i in range (1,len(fact)):
     fact[i] = (fact[i-1] * i) % MOD
 
 # Calcula el Coeficiente binomico modulo MOD 
-def C(n,k):
-    return fact[n] * (pow (fact[k] , MOD -2,MOD)*pow (fact[n] , MOD -2,MOD)) % MOD   
+def Binom(n,k):
+    return (fact[n] * (pow (fact[n-k] , MOD -2,MOD)*pow (fact[k] , MOD -2,MOD)) % MOD)%MOD
 
+# n-> numero total de bloques con los que se pueden armar el muro 
+# C-> cantidad de columnas que tiene que tener el muro a construir 
 def solution(n,C):
-    return (C(n+C,C)) -1  # calcular el coeficiente binomico n+c en c y restarle el caso en el que el muro no tiene bloques , que es la s
+    return (Binom(n+C,C)) -1  # calcular el coeficiente binomico n+c en c y restarle el caso en el que el muro no tiene bloques que es en un caso (por lo tanto se le resta 1 )
 
-# def isprime(n) :
-#     if n < 4:
-#         return True 
-#     for i in range(2,int(math.sqrt(n))+1):
-#         if n%i == 0 :
-#             return False
-#     return True
+if __name__ == "__main__":
+    n,c = map(int,input().split())
+    print(solution(n,c))

@@ -97,57 +97,42 @@ Esto es la idea basica de un backtraking, por lo tanto es un fuerza bruta y la c
 
 ### Propuesta de  Solucion 2
 
+Como vimos la solucion anterior no es para nada eficiente por lo que necesitamos una forma eficiente de calcular todas las posibles maneras que hay de encender todas las luces. 
 
-```python {cmd=/usr/bin/python3 matplotlib=true}
-import matplotlib.pyplot as plt
-plt.plot([1,2,3, 4])
-plt.show() # show figure
-```
+Entonces vamos a clasificar las luces de la siguinte manera. Dada la disposicion de luces dada inicialmente vamos a clasificar todas todas las luces que estan a intervalos como luces del mismo tipo. 
 
-<div class="container">
-  <div class="child">Bloque sin centrar</div>
-</div>
+Entonces  vamos a determinar la cantidad de forma en que se pueden encender todas las luces que han sido clasificadas ($n$ luces )sin importar el orden en que se encienden las luces que estan clasificadas de un mismo tipo. por ejemplo si tenemos $t_1$ luces de tipo $1$ , $t_2$ del tipo $2$ , ... , $t_k$ luces de tipo $k$.
 
-<style>
-.container {
-  background: #e0e0e0;
-  margin: 0 0 1rem;
-  height: 10rem;
-  display: flex;
-  /* align-items por defecto tiene el valor `stretch` */
-  align-items: start;
-}
-.child {
-  background: #60e0b0;
-  padding: .2rem;
-}
-</style>
+En Conferencia vimos que esto se puede hacer de la forma siguiente: 
+
+$$\frac{n!}{t_1!\cdot t_2! \dots t_k!}$$
+
+En la literatura se conoce como coeficeintes multinomicos, pero esta no son todas las formas de encender las luces. 
+
+Por ejemplo las luces que se encuentran entre un bloque , es decir, todas las luces de un mismo tipo que tiene en los extremos luces encendidas en la disposicion inicial. Entonces , esas luces se pueden enceder de la siguiente manera: en cada momento pudo escoger dos luces posibles a encender , las que esta a la izquierda de las luces que no se han encendido, o la que esta a la dercha,Y por lo tanto tendia que recurrir al mismo procedimiento , pero ahora con $t_i -1$ luces, y asi hasta que solo queden $1$ luz por encender. 
+Por lo tanto podemos proporcionar la cantidad de formas de encender las luces de forma recursiva de usando la siguiente formula: 
+
+$$a_n = 2\cdot a_{n-1}$$
+
+como caso base tenemos que $a_1 = 1$ que es la cantidad de formas de encender $1$ sola luz. Por lo tanto podemos resolver la ecuacion de recurrencia linela y obtendriamos que:
+
+$$a_n = 2^{n-1}$$
+
+Entonces tenemos lo siguiente. todas las luces de un tipo que se encuentran entre luces que estaban encendidas inicialmente se pueden encender de $2^{n-1}$ donde $n$ es la cantidad e luces de ese tipo. 
+
+Luego los extremos, es decir las luces de un tipo que tiene en un solo extremo una luz encendida de las que se encontraban encendidas en las disposicion inicial. Entonces eso se puede hacer de una sola forma que es ir encendiendo. Como en cada momento solo tenemos una opcion, que es la lua que tenemos encendida en un extremo , entonces solo tenemos las opcion de encender una luz. 
+
+entonces la formula general es encontrar todos los bloque de luces que tiene las luces de los extremos encendidas. Es decir los bloque de longitud $n$ que se puedan encender de $2^{n-1}$ formas. Cada una de estas disposiciones por la cantidad de formas de encender las luces de cada bloque sin importar el orden en que se encienden en cada una de los bloque. 
+
+Por lo tanto si tenemos $n$ luces por encender y tenemos $t_1$ luces de tipo 1 , $t_2$ luces de tipo 2  hasta $t_k$ luces de tipo $k$. Entonces la cantidad de formas de encender las luces esta dada por: 
+
+$$\frac{n!}{t_1! \cdot t_2! \dots t_k!} \cdot 2^{t_i-1}\cdot 2^{t_i-1} \dots$$
+
+donde los $ 2^{t_i-1}$ estan dados por los $t_i$ que son las luces que estan en bloques que tienen $t_i$ luces y tienen en las dispocision inicial ese bloque tiene luces en los extremos que estan encendidas. 
 
 
+### Codigo 
 
-<div class="container center-h center-v">
-  <div class="child">
-  </div>
-  
-</div>
+#### Codigo en Python 
 
-<style>
-.container {
-  background: #e0e0e0;
-  margin: 0 0 1rem;
-  height: 10rem;
-  display: flex;
-  /* align-items por defecto tiene el valor `stretch` */
-  align-items: start;
-}
-.center-h {
-  justify-content: center;
-}
-.center-v {
-  align-items: center;
-}
-.child {
-  background: #60e0b0;
-  padding: .2rem;
-}
-</style>
+@import "../code/CShaassandLights.py" {class="line-numbers" line_begin=45}

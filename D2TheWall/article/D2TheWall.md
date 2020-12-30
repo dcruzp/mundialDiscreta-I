@@ -96,6 +96,38 @@ $$x_1 + \dots + x_C = i$$
 
 con $x_j \geq 0$. entonces si le damos solucion a la interrogante entonces podemos tener la solucion a lo que estamos buscando, pues esta claro que es equivalente el analisis (hallar el numero de soluciones enteras de la ecuacion es lo mismo que distribuir $i$ objetos iguales en $C$ casillas  distintas , donde pueden haber casillas vacias)
 
+Las figuras siguietes muestran las distintas maneras en que se puede construir un muro de dos columnas con a lo sumo tres  bloque
+
+Para el caso en que tenemos una solo bloque las posibles formas de cosntruir el muro de dos columnas es:
+
+<div style="text-align: center">
+<div>  </div>
+
+@import "tikzpictures/figure0.tex" {cmd = true hide=true }
+
+</div>
+
+Ahora si tenemos exactamente dos bloques a colocar para cosntriur el muro de dos columnas se puede hacer de la siguiente manera:
+
+<div style="text-align: center">
+<div>  </div>
+
+@import "tikzpictures/figure1.tex" {cmd = true hide = true}
+
+</div>
+
+Con exactamente tres bloques para cosntruir el muro podemos hacerlo de las distintas maneras en que se ven las figuras siguientes: 
+
+<div style="text-align: center">
+<div>  </div>
+
+@import "tikzpictures/figure2.tex" {cmd = true hide =true }
+
+</div>
+
+Por lo que tenemos que las distintas formas de construir un muro de dos columnas con a lo sumo tre bloques sin que ningun muro de los posibles a construir este vacio (que no tenga ningun bloque), es de nueve formas posibles 
+
+
 >En Conferencia vimos (en la $2^{da}$ Conferencia ) que: *El numero formas  de repartir $n$ objetos iguales en $k$ categorias distintas es :*
 > $$ \binom{n+k-1}{k-1}$$ 
 
@@ -162,7 +194,7 @@ Las restricciones del problema nos dice que $n$ es un valor que puede ser grande
 
 Como calcular el coeficiente binomico eficientemente. Para esto vamos a usar algunos resultados vistos en Teoria de numeros 
 
-### Como calcular el $\binom{n}{k}$ modulo $m$ eficientemente 
+### Como calcular $\binom{n}{k}$ modulo $m$ eficientemente 
 
 Necesitamos calcular $\binom{n}{k}$ modulo $m$  eficientemente. Si vemos en nuestro caso $m = 10^6 + 3$ es un numero primo. Si vemos para valores de $n$ grandes, $\binom{n}{k}$ puede ser un numero bastante grande si $k$ se aproxima a $\frac{n}{2}$. Por lo que necesitamo un resultado que nos permita calcular esos valores binomiales modulo $m$ eficientemente. 
 
@@ -212,6 +244,19 @@ Luego usando este resultado es facil calcular el coeficiente binomico que nos pl
 
 #### Codigo en Python
 
-@import "../code/D2TheWall.py" {class="line-numbers" line_begin=0 line_end=16}
+@import "../code/D2TheWall.py" {class="line-numbers" line_begin=0 line_end=17}
 
 #### Codigo en CSharp
+
+@import "../code/codeinCSharp/Program.cs" {class="line-numbers" line_begin=20 line_end=60}
+
+
+### Codigo completo 
+
+#### En Python 
+
+@import "../code/D2TheWall.py" {class="line-numbers" }
+
+#### En CSharp 
+
+@import "../code/codeinCSharp/Program.cs" {class="line-numbers"}

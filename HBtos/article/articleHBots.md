@@ -108,7 +108,7 @@ En el sigiente grafico vamos a ver como podemos estudiar los posibles estados pa
 Para el caso en que los dos pueden dar 2 pasos cada una , vamos a ver un grafico en el que se muestra el comportamiento para determinados estados (haciendo por un arbol)
 
 #### Comienzo 
-> Un estado inicial, donde tenemos un solo estado (A), desde donde partimos (todavia no se han hecho moviminetos ).
+> Un estado inicial, donde tenemos un solo estado (A), desde donde partimos (todavia no se han hecho movimientos).
 
 <div style="text-align: center">
 <div>  </div>
@@ -296,10 +296,38 @@ Por lo tanto nuestra solucion se reduce al calcular el coeficiente binomico $\bi
 
 La soluion comptacional tiene cierto grado de dificultad, dado que hay que que computar un numero grade pues si tenemos en cuenta que $1 \leq N \leq 10^6$. entonces el valor de $\binom{2n+2}{n+1}$ puede ser bastante grande para valores de $n>100$ .
 
-Pero tenemos que el resultado podemos expresarlo modulo $10^9+7$. Esto nos puede facilitar los grades volumenes de calculo dado a resultado de teoria de numeros , dado que podemos trabajar con los modulos de las operaciones y el valor del calculo nunca va a ser mayor que $10^9+7$. Esto es  correcto, por resultados estudiados en *Teoria de numeros*
+Pero tenemos que el resultado podemos expresarlo modulo $10^9+7$. Esto nos puede facilitar los grades volumenes de calculo su usamos  resultados de *Teoria de numeros* , dado que podemos trabajar con los modulos de las operaciones y el valor del calculo nunca va a ser mayor que $10^9+7$. Esto es  correcto, por resultados estudiados en *Teoria de numeros*.
 
 
-### Como calcular N en k eficientemente 
+### Como calcular $\binom{n}{k}$ modulo $m$ eficientemente
+
+Necesitamos calcular $\binom{n}{k}$ modulo $m$  eficientemente. Si vemos en nuestro caso $m~=~10^9~+~7$ es un numero primo. Si vemos para valores de $n>100$, el valor de $\binom{n}{k}$ puede ser un numero bastante grande si $k$ se aproxima a $\frac{n}{2}$. Por lo que necesitamo un resultado que nos permita calcular esos valores binomiales modulo $m$ eficientemente. 
+
+> **El Pequeno teorema de Fermat (estudiado en clases)**
+> Sea  $p$ primo y $a \in \mathbb{Z}$ 
+> - Si mcd $\left(a,p\right) =1$ entonces, $a^{p-1} \equiv 1 \left(\mod p \right)$  
+> - Para cualquier $a \in \mathbb{Z}^+$ se tiene $a^p \equiv a \left(\mod p\right)$
+
+Pero tenemos que usando los resultados del Pequeno teorema de Fermat podemos obtener el siguiente resultado:
+
+> Sea $p$ primo y a cualquier entero tal que $p \nmid  a$. Entonces, $a^{p-2}$ es el inverso de $a$ modulo $p$
+>
+> **Demostracion**
+> Por el Pequeno Teorema de Fermat tenemos que $a^{p-1} \equiv 1\left(\mod p \right)$ , entonces tenemos que $a \cdot a^{p-2} \equiv 1 \left(\mod p \right)$, ahora sea $\bar{a}$ el inverso de $a$ modulo $p$ entonces $a^{p-2} \equiv \bar{a} \left(\mod p \right)$
+
+El resultado anterior lo podemos justificar por el resulado estudiado en clases:
+> Si mcd $\left( a, p \right)$ = 1 entonces $a \cdot x \equiv 1 \left(\mod p \right)$ tiene solución única $x = \bar{a}$ módulo $p$.
+>
+>**Demostracion**
+>Tenemos que resolver la congruencia $a\cdot x \equiv 1 \left(\mod m\right)$ es equivalente a resolver la ecuacion $a\cdot x + m\cdot y = 1$. 
+>***existencia***
+Como mcd$\left(a,m\right) =1$, existen $s,t \in \mathbb{Z}$ tal que $s\cdot a + t\cdot m = 1$, por lo que tenemos la solucion $x=s$ para la ecuacion $a\cdot~x~\equiv~1~\left(~\mod~m~\right)$ Estos resultado los estudiamos en Conferencia .
+***unicidad***
+> Para la demostracion de la unicidad tenemos que demostrar que si $a~\cdot~s~\equiv~1~\left(\mod m\right)$  y $a~\cdot~s^{'}~\equiv~1~\left(\mod m\right)$ , entonces $s \equiv~s^{'}~\left(~\mod~m~\right)$. Para  ver que la solucion es unica modulo $m$, supongamos que $a\cdot s^{'} \equiv 1  \left( \mod m\right)$, luego restando tenemos $a(s-s^{'}) \equiv 0 \left(\mod m\right)$ de donde $m \vert a(s-s^{'})$, pero como el mcd $\left(a,m\right)=1$ entonces $m \vert (s-s^{'})$ de donde obtenemos que $s \equiv s^{'} \left( \mod m \right)$
+>
+>Luego podemos concluir que si mcd $\left( a, p \right)$ = 1 entonces $a \cdot x \equiv 1 \left(\mod p \right)$ tiene solución única $x = \bar{a}$ módulo $p$.
+
+Luego con estos resultados entonces podemos calcular de forma eficiente $\binom{n}{k}$. Entonces la solucion eficente de nuestro problema usando resultados de *Combinatoria* y *Teoria de Numero* la resolvemo computacionalmente usando solo multiplicacion y division de numeros menores que $10^9+7$ . La solucion es la siguiente:
 
 ##### Codigo en Python
 
@@ -309,12 +337,18 @@ Pero tenemos que el resultado podemos expresarlo modulo $10^9+7$. Esto nos puede
 
 @import "../code/codeinCSharp/Program.cs" {class="line-numbers" line_begin=56 line_end=94}
 
+### Complejidad temporal
+
+Lo primero que tenemos que hacer es calcular el factorial , pero ya vimos que podemos calcular el factorial multiplicando por le resultado previamente calculado modulo $10^9+7$ y guardandolo en un array de longitud no mucho mas grande que $2n$ , el resultado , esto se puede hacer en un simple recorrido , por lo que la complejidad temporal de esto es lineal.
+
+Para calcular el coeficiente binomico con el array de factorial previamente calculado es simplemente multiplicar $n!$ por el inverso de $(n-k)!$  por el inverso de  $k!$ modulo $10^7+9$. Ya vimos que podemos calcular el inverso modulo $10^9+7$ elevendo a $10^9+7 - 2$ modulo $10^9+7$. Esto pude ser un poco costoso pues $10^9+7 - 2$  puede ser bastante costos, pero como estamos calculando todo modulo $10^9+7$ entonces podemos tomar la misma idea que utilizamos para calcular el factorial, por lo tanto  el costo seria lineal. Vamos a utilizar metodos ya implementados en las bibliotecas de python y de C# (esta claro que estas biblotecas son mucho mas eficientes que un oden lineal pues existen algunos algoritmos que disminuyen esta cuota,, aunque no se exactamente cual algoritmo utilizan , me imagino  deben ser bastante eficientes o por lo menos mas que un orden lineal , estos algoritmos de elevar a la potencia un numero modulo otro numero no lo voy a ver aqui ). En general , el orden del algoritmo es lineal es decir $O\left(n\right)$.
+
 ### Codigo Completo
 
 #### En Python 
 
-@import "../code/HBots.py"
+@import "../code/HBots.py" {class="line-numbers"}
 
 #### En CSharp 
 
-@import "../code/codeinCSharp/Program.cs"
+@import "../code/codeinCSharp/Program.cs" {class="line-numbers"}
